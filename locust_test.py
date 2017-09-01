@@ -14,7 +14,7 @@ class UserBehavior(TaskSet):
 class WebUserLocust(HttpLocust):
     task_set = UserBehavior
     min_wait = 5000
-    max_wait = 10000
+    max_wait = 15000
 
 #if __name__ == '__main__':
 #    subprocess.Popen('locust -f .\locust_test.py --host=http://api.epoque.cn', shell=True)
