@@ -1,0 +1,1600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>意礴后台接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>意礴后台接口自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-10-11 16:33:52</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:07.796000</p>
+<p class='attribute'><strong>Status:</strong> Pass 52</p>
+
+<p class='description'></p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>brand_detail_test.BrandDetailTest</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {u'data': {u'count': {u'scan_num': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5185\u8499\u53e4\u81ea\u6cbb\u533a', u'city': u'\u4e4c\u6d77\u5e02', u'shop_class': None, u'scanner_id': u'BL170869', u'wxscan': u'1', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'0', u'shop_name': u'\u4e4c\u6d77\u4e07\u8fbe\u5e7f\u573a\u5e97MAP', u'cityid': u'150300', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DH02MA', u'scan_date': u'2017-07-31', u'provinceid': u'150000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_scanner_id</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: {u'data': {u'count': {u'scan_num': u'7'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5185\u8499\u53e4\u81ea\u6cbb\u533a', u'city': u'\u547c\u548c\u6d69\u7279\u5e02', u'shop_class': None, u'scanner_id': u'BL160080', u'wxscan': u'7', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'0', u'shop_name': u'\u547c\u5e02\u5609\u8302\u8d2d\u7269\u4e2d\u5fc3\u5e97BL', u'cityid': u'150100', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DH13BL', u'scan_date': u'2017-07-18', u'provinceid': u'150000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_code</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: {u'data': {u'count': {u'scan_num': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5317\u4eac\u5e02', u'city': u'\u5317\u4eac\u5e02', u'shop_class': None, u'scanner_id': u'BL170996', u'wxscan': u'1', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'BL', u'shop_name': u'\u5317\u4eac\u592a\u9633\u5bab\u51ef\u5fb7\u5e97BL', u'cityid': u'110100', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DBI3BL', u'scan_date': u'2017-07-31', u'provinceid': u'110000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_name</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.4')" >
+        pass</a>
+
+    <div id='div_pt1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.4: {u'data': {u'count': {u'scan_num': u'12'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4e2d\u5c71\u5e02', u'shop_class': None, u'scanner_id': u'BL170590', u'wxscan': u'12', u'region': u'\u534e\u5357', u'regionid': u'100001', u'brand': u'BL', u'shop_name': u'\u4e2d\u5c71\u77f3\u5c90\u5047\u65e5\u5e7f\u573a\u5e97ST', u'cityid': u'442000', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'K502ST', u'scan_date': u'2017-07-31', u'provinceid': u'440000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>brand_summary_test.BrandSummaryTest</td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',4)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: {u'data': {u'count': {u'scan_num': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5185\u8499\u53e4\u81ea\u6cbb\u533a', u'city': u'\u4e4c\u6d77\u5e02', u'shop_class': None, u'scanner_id': u'BL170869', u'wxscan': u'1', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'0', u'shop_name': u'\u4e4c\u6d77\u4e07\u8fbe\u5e7f\u573a\u5e97MAP', u'cityid': u'150300', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DH02MA', u'scan_date': u'2017-07-31', u'provinceid': u'150000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_scanner_id</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: {u'data': {u'count': {u'scan_num': u'7'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5185\u8499\u53e4\u81ea\u6cbb\u533a', u'city': u'\u547c\u548c\u6d69\u7279\u5e02', u'shop_class': None, u'scanner_id': u'BL160080', u'wxscan': u'7', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'0', u'shop_name': u'\u547c\u5e02\u5609\u8302\u8d2d\u7269\u4e2d\u5fc3\u5e97BL', u'cityid': u'150100', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DH13BL', u'scan_date': u'2017-07-18', u'provinceid': u'150000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_code</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: {u'data': {u'count': {u'scan_num': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5317\u4eac\u5e02', u'city': u'\u5317\u4eac\u5e02', u'shop_class': None, u'scanner_id': u'BL170996', u'wxscan': u'1', u'region': u'\u534e\u5317', u'regionid': u'100003', u'brand': u'BL', u'shop_name': u'\u5317\u4eac\u592a\u9633\u5bab\u51ef\u5fb7\u5e97BL', u'cityid': u'110100', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'DBI3BL', u'scan_date': u'2017-07-31', u'provinceid': u'110000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_name</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: {u'data': {u'count': {u'scan_num': u'12'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4e2d\u5c71\u5e02', u'shop_class': None, u'scanner_id': u'BL170590', u'wxscan': u'12', u'region': u'\u534e\u5357', u'regionid': u'100001', u'brand': u'BL', u'shop_name': u'\u4e2d\u5c71\u77f3\u5c90\u5047\u65e5\u5e7f\u573a\u5e97ST', u'cityid': u'442000', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_code': u'K502ST', u'scan_date': u'2017-07-31', u'provinceid': u'440000'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>count_detail_test.CountdetailTest</td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c3',11)">Detail</a></td>
+</tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_not_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.1')" >
+        pass</a>
+
+    <div id='div_pt3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.1: {u'errcode': 90000, u'errmsg': u'\u767b\u5f55\u5931\u6548/\u8d85\u65f6'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
+        pass</a>
+
+    <div id='div_pt3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.2: {u'data': {u'count': {u'reportdata': u'7582', u'running_total_day': u'187', u'scan_count': u'9391', u'rate': u'85%', u'wechat_count': u'7602', u'upload_count': u'9508', u'scandata': u'6465'}, u'paging': {u'page_count': 10, u'total_count': u'193', u'record_end': 20, u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u73e0\u6d77\u5e02', u'reportdata': u'16', u'rate': u'88', u'shop_address': u'\u5e7f\u4e1c\u7701\u73e0\u6d77\u5e02\u91d1\u6e7e\u533a\u5409\u5927\u666f\u5c71\u8def228\u53f7\u56fd\u8d38\u6d77\u5929\u57ce\u4e00\u5c42C\u53f7\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170595', u'scan_count': u'25', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'16', u'shop_name': u'\u73e0\u6d77\u666f\u5c71\u8def\u56fd\u8d38\u6d77\u5929\u57ceBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'9816', u'upload_count': u'28', u'date': u'2017-07-01', u'shop_code': u'K723BL', u'scandata': u'14', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4f5b\u5c71\u5e02', u'reportdata': u'51', u'rate': u'94', u'shop_address': u'\u5e7f\u4e1c\u7701\u4f5b\u5c71\u5e02\u5357\u6d77\u533a\u7f57\u6751\u5e9c\u524d\u8def\u91d1\u76db\u5e7f\u573a\u9996\u5c42126\u3001127\u53f7\u94fa\u767e\u4e3d\u4e13\u5356\u5e97', u'scanner_id': u'BL170582', u'scan_count': u'54', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'51', u'shop_name': u'\u5357\u6d77\u7f57\u6751\u5927\u6da6\u53d1\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8857\u94fa', u'shop_id': u'11770', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'L433BL', u'scandata': u'48', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u5e7f\u5dde\u5e02', u'reportdata': u'66', u'rate': u'82', u'shop_address': u'\u5e7f\u4e1c\u7701\u5e7f\u5dde\u5e02\u8d8a\u79c0\u533a\u5317\u4eac\u8def248\u53f7', u'scanner_id': u'BL170568', u'scan_count': u'79', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'66', u'shop_name': u'\u5e7f\u5dde\u5317\u4eac\u8defBL', u'running_total_day': u'1', u'shop_type': u'\u8857\u94fa', u'shop_id': u'12023', u'upload_count': u'79', u'date': u'2017-07-01', u'shop_code': u'L301BL', u'scandata': u'54', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4e1c\u839e\u5e02', u'reportdata': u'101', u'rate': u'95', u'shop_address': u'\u5e7f\u4e1c\u7701\u4e1c\u839e\u5e02\u4e1c\u839e\u5e02\u6559\u80b2\u5317\u8def\u88578\u53f7\u5929\u548c\u767e\u8d27\u4e8c\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170565', u'scan_count': u'113', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'103', u'shop_name': u'\u4e1c\u839e\u5927\u5cad\u5c71\u5929\u548c\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'9878', u'upload_count': u'113', u'date': u'2017-07-01', u'shop_code': u'K665BL', u'scandata': u'96', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'56', u'rate': u'79', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u7f57\u6e56\u533a\u548c\u5e73\u8def\u53e3\u548c\u5e73\u8302\u4e1a\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170564', u'scan_count': u'72', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'56', u'shop_name': u'\u6df1\u5733\u548c\u5e73\u8def\u8302\u4e1a\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'10228', u'upload_count': u'72', u'date': u'2017-07-01', u'shop_code': u'K302BL', u'scandata': u'44', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6c55\u5934\u5e02', u'reportdata': u'13', u'rate': u'92', u'shop_address': u'\u5e7f\u4e1c\u7701\u6c55\u5934\u5e02\u9f99\u6e56\u533a\u957f\u5e73\u8def\u4e30\u6cfd\u5e84\u535c\u8702\u83b2\u82b1\u8d85\u5e02\u9996\u5c42', u'scanner_id': u'BL170561', u'scan_count': u'16', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'13', u'shop_name': u'\u6c55\u5934\u957f\u5e73\u8def\u535c\u8702\u83b2\u82b1\u8d2d\u7269\u5546\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'10184', u'upload_count': u'15', u'date': u'2017-07-01', u'shop_code': u'K807BL', u'scandata': u'12', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a', u'city': u'\u67f3\u5dde\u5e02', u'reportdata': u'20', u'rate': u'90', u'shop_address': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a\u67f3\u5dde\u5e02\u57ce\u4e2d\u533a\u4e1c\u73af\u5927\u9053256\u53f7\u4e07\u8fbe\u5e7f\u573a\u4e00\u5c42\u767e\u4e3d\u4e13\u5356\u5e97', u'scanner_id': u'BL170557', u'scan_count': u'33', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'20', u'shop_name': u'\u67f3\u5dde\u4e1c\u73af\u5927\u9053\u4e07\u8fbe\u5e7f\u573a\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'10873', u'upload_count': u'33', u'date': u'2017-07-01', u'shop_code': u'KN25BL', u'scandata': u'18', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u5e7f\u5dde\u5e02', u'reportdata': u'15', u'rate': u'87', u'shop_address': u'\u5e7f\u4e1c\u7701\u5e7f\u5dde\u5e02\u8354\u6e7e\u533a\u5b9d\u534e\u8def133\u53f7\u6052\u5b9d\u5e7f\u573a\u9996\u5c42113\u94fa', u'scanner_id': u'BL170555', u'scan_count': u'20', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'15', u'shop_name': u'\u5e7f\u5dde\u6052\u5b9d\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'12016', u'upload_count': u'20', u'date': u'2017-07-01', u'shop_code': u'L427BL', u'scandata': u'13', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'93', u'rate': u'76', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u9f99\u534e\u65b0\u533a\u9f99\u534e\u8857\u9053\u4eba\u6c11\u5317\u8def291\u53f7\u767e\u4f73\u534e\u5546\u573aD1-d26\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170553', u'scan_count': u'98', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'93', u'shop_name': u'\u6df1\u5733\u9f99\u534e\u767e\u4f73\u534eBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'10596', u'upload_count': u'96', u'date': u'2017-07-01', u'shop_code': u'K718BL', u'scandata': u'71', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6c55\u5934\u5e02', u'reportdata': u'72', u'rate': u'93', u'shop_address': u'\u5e7f\u4e1c\u7701\u6c55\u5934\u5e02\u9f99\u6e56\u533a\u957f\u6c5f\u8def23\u53f7\u5408\u80dc\u5546\u573a', u'scanner_id': u'BL170552', u'scan_count': u'85', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'72', u'shop_name': u'\u6c55\u5934\u65b0\u4e00\u57ce\u5408\u80dc(\u5973)BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'10202', u'upload_count': u'85', u'date': u'2017-07-01', u'shop_code': u'KT10BL', u'scandata': u'67', u'region': u'\u534e\u5357'}, {u'province': u'\u798f\u5efa\u7701', u'city': u'\u6cc9\u5dde\u5e02', u'reportdata': u'36', u'rate': u'81', u'shop_address': u'\u798f\u5efa\u7701\u6cc9\u5dde\u5e02\u4e30\u6cfd\u533a\u5b9d\u6d32\u8857\u6d66\u897f\u4e07\u8fbe\u5e7f\u573a\u4e00\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170551', u'scan_count': u'41', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'36', u'shop_name': u'\u6cc9\u5dde\u6d66\u897f\u4e07\u8fbe\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'11275', u'upload_count': u'41', u'date': u'2017-07-01', u'shop_code': u'K934BL', u'scandata': u'29', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4e2d\u5c71\u5e02', u'reportdata': u'50', u'rate': u'94', u'shop_address': u'\u5e7f\u4e1c\u7701\u4e2d\u5c71\u5e02\u4e2d\u5c71\u5e02\u4e1c\u533a\u4e2d\u5c71\u4e09\u8def\u4e16\u7eaa\u5e7f\u573a8\u53f7\u76ca\u534e\u767e\u8d27\u4e00\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170550', u'scan_count': u'60', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'51', u'shop_name': u'\u4e2d\u5c71\u4e2d\u5c71\u4e09\u8def\u76ca\u534e\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'9714', u'upload_count': u'60', u'date': u'2017-07-01', u'shop_code': u'K454BL', u'scandata': u'47', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4f5b\u5c71\u5e02', u'reportdata': u'32', u'rate': u'91', u'shop_address': u'\u5e7f\u4e1c\u7701\u4f5b\u5c71\u5e02\u7985\u57ce\u533a\u5b63\u534e\u4e94\u8def33\u53f7\u987a\u8054\u56fd\u9645\u8d2d\u7269\u4e2d\u5fc3\u4e8c\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170546', u'scan_count': u'35', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'32', u'shop_name': u'\u4f5b\u5c71\u987a\u8054\u56fd\u9645BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'11808', u'upload_count': u'35', u'date': u'2017-07-01', u'shop_code': u'L379BL', u'scandata': u'29', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'91', u'rate': u'93', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u5357\u5c71\u533a\u540e\u6d77\u5546\u4e1a\u6587\u5316\u4e2d\u5fc3\u533a\u8302\u4e1a\u767e\u8d27\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170543', u'scan_count': u'102', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'91', u'shop_name': u'\u6df1\u5733\u5357\u5c71\u8302\u4e1aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'10677', u'upload_count': u'102', u'date': u'2017-07-01', u'shop_code': u'K773BL', u'scandata': u'85', u'region': u'\u534e\u5357'}, {u'province': u'\u6c5f\u897f\u7701', u'city': u'\u8d63\u5dde\u5e02', u'reportdata': u'76', u'rate': u'82', u'shop_address': u'\u6c5f\u897f\u7701\u8d63\u5dde\u5e02\u7ae0\u8d21\u533a\u7fe0\u5fae\u8def\u4e0e\u957f\u5f81\u5927\u9053\u4ea4\u6c47\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170542', u'scan_count': u'108', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'76', u'shop_name': u'\u8d63\u5dde\u7fe0\u5fae\u8def\u5929\u8679BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'11494', u'upload_count': u'108', u'date': u'2017-07-01', u'shop_code': u'K878BL', u'scandata': u'62', u'region': u'\u534e\u5357'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u60e0\u5dde\u5e02', u'reportdata': u'52', u'rate': u'94', u'shop_address': u'\u5e7f\u4e1c\u7701\u60e0\u5dde\u5e02\u60e0\u9633\u533a\u6de1\u6c34\u9547\u5d07\u96c5\u8def\u65b0\u4e00\u57ce\u8d2d\u7269\u5e7f\u573a\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170539', u'scan_count': u'62', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'53', u'shop_name': u'\u6de1\u6c34\u5d07\u96c5\u8def\u65b0\u4e00\u57ce\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'10128', u'upload_count': u'62', u'date': u'2017-07-01', u'shop_code': u'K852BL', u'scandata': u'49', u'region': u'\u534e\u5357'}, {u'province': u'\u798f\u5efa\u7701', u'city': u'\u6f33\u5dde\u5e02', u'reportdata': u'55', u'rate': u'87', u'shop_address': u'\u798f\u5efa\u7701\u6f33\u5dde\u5e02\u9f99\u6587\u533a\u9f99\u6587\u533a\u4e5d\u9f99\u5927\u9053\u4e07\u8fbe\u5e7f\u573a1\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170533', u'scan_count': u'70', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'55', u'shop_name': u'\u6f33\u5dde\u4e5d\u9f99\u4e07\u8fbe\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'11451', u'upload_count': u'70', u'date': u'2017-07-01', u'shop_code': u'KX30BL', u'scandata': u'48', u'region': u'\u534e\u5357'}, {u'province': u'\u5b89\u5fbd\u7701', u'city': u'\u829c\u6e56\u5e02', u'reportdata': u'15', u'rate': u'93', u'shop_address': u'\u5b89\u5fbd\u7701\u829c\u6e56\u5e02\u955c\u6e56\u533a\u6b65\u884c\u8857\u534e\u4ebf\u8d2d\u7269\u4e2d\u5fc3\u5317\u697c1\u697c', u'scanner_id': u'BL170527', u'scan_count': u'17', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'15', u'shop_name': u'\u829c\u6e56\u534e\u4ebf\u5317\u697cBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'8309', u'upload_count': u'17', u'date': u'2017-07-01', u'shop_code': u'IQ04BL', u'scandata': u'14', u'region': u'\u534e\u4e1c'}, {u'province': u'\u4e91\u5357\u7701', u'city': u'\u6606\u660e\u5e02', u'reportdata': u'11', u'rate': u'82', u'shop_address': u'\u4e91\u5357\u7701\u6606\u660e\u5e02\u4e94\u534e\u533a\u6b63\u4e49\u8def52\u53f7', u'scanner_id': u'BL170523', u'scan_count': u'13', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'11', u'shop_name': u'\u6606\u660e\u6b63\u4e49\u574a\u5357\u9986\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'12254', u'upload_count': u'13', u'date': u'2017-07-01', u'shop_code': u'MKD4BL', u'scandata': u'9', u'region': u'\u534e\u5357'}, {u'province': u'\u5b89\u5fbd\u7701', u'city': u'\u9a6c\u978d\u5c71\u5e02', u'reportdata': u'4', u'rate': u'75', u'shop_address': u'\u5b89\u5fbd\u7701\u9a6c\u978d\u5c71\u5e02\u82b1\u5c71\u533a\u6e56\u4e1c\u5357\u8def\u56e2\u7ed3\u5e7f\u573a\u4e00\u697c', u'scanner_id': u'BL170521', u'scan_count': u'4', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'4', u'shop_name': u'\u9a6c\u978d\u5c71\u516b\u4f70\u4f34BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'8279', u'upload_count': u'4', u'date': u'2017-07-01', u'shop_code': u'IW63BL', u'scandata': u'3', u'region': u'\u534e\u4e1c'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.3')" >
+        pass</a>
+
+    <div id='div_pt3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.3: {u'data': {u'count': {u'reportdata': u'87', u'running_total_day': u'3', u'scan_count': u'104', u'rate': u'77%', u'wechat_count': u'87', u'upload_count': u'104', u'scandata': u'67'}, u'paging': {u'page_count': 1, u'total_count': u'3', u'record_end': u'3', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'rate': u'60', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'date': u'2017-07-01', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'rate': u'84', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'rate': u'74', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'date': u'2017-07-01', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand_cityid_type</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.4')" >
+        pass</a>
+
+    <div id='div_pt3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.4: {u'data': {u'count': {u'reportdata': u'87', u'running_total_day': u'3', u'scan_count': u'104', u'rate': u'77%', u'wechat_count': u'87', u'upload_count': u'104', u'scandata': u'67'}, u'paging': {u'page_count': 1, u'total_count': u'3', u'record_end': u'3', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'rate': u'60', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'date': u'2017-07-01', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'rate': u'84', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'rate': u'74', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'date': u'2017-07-01', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.5')" >
+        pass</a>
+
+    <div id='div_pt3.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.5: {u'data': {u'count': {u'reportdata': u'256', u'running_total_day': u'8', u'scan_count': u'315', u'rate': u'76%', u'wechat_count': u'256', u'upload_count': u'315', u'scandata': u'194'}, u'paging': {u'page_count': 1, u'total_count': u'8', u'record_end': u'8', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'rate': u'64', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'date': u'2017-07-01', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'rate': u'71', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'date': u'2017-07-01', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'rate': u'69', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'date': u'2017-07-01', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'rate': u'88', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'date': u'2017-07-01', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'rate': u'60', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'date': u'2017-07-01', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'39', u'rate': u'69', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u8299\u84c9\u5357\u8def\u4e09\u6bb527\u53f7', u'scanner_id': u'BL160138', u'scan_count': u'54', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'39', u'shop_name': u'\u957f\u6c99\u53cb\u963f\u5965\u7279\u83b1\u65af\u9ad8\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'6642', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB17ZH', u'scandata': u'27', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'rate': u'84', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'rate': u'74', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'date': u'2017-07-01', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_provinceid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.6')" >
+        pass</a>
+
+    <div id='div_pt3.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.6: {u'data': {u'count': {u'reportdata': u'498', u'running_total_day': u'13', u'scan_count': u'613', u'rate': u'80%', u'wechat_count': u'499', u'upload_count': u'587', u'scandata': u'399'}, u'paging': {u'page_count': 1, u'total_count': u'13', u'record_end': u'13', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u8861\u9633\u5e02', u'reportdata': u'28', u'rate': u'71', u'shop_address': u'\u6e56\u5357\u7701\u8861\u9633\u5e02\u96c1\u5cf0\u533a\u89e3\u653e\u8def121\u53f7(\u84b8\u6e58\u8def\u8def\u53e3)\u5927\u6d0b\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170421', u'scan_count': u'34', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'28', u'shop_name': u'\u8861\u9633\u5927\u6d0b\u767e\u8d27SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6735', u'upload_count': u'34', u'date': u'2017-07-01', u'shop_code': u'HB71SD', u'scandata': u'20', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6e58\u6f6d\u5e02', u'reportdata': u'72', u'rate': u'85', u'shop_address': u'\u6e56\u5357\u7701\u6e58\u6f6d\u5e02\u5cb3\u5858\u533a\u5efa\u8bbe\u8def\u53e3\u534e\u9686\u6b65\u6b65\u9ad8A\u680b\u4e00\u697cBL\u4e13\u67dc', u'scanner_id': u'BL170364', u'scan_count': u'94', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'72', u'shop_name': u'\u6e58\u6f6d\u534e\u9686\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6813', u'upload_count': u'93', u'date': u'2017-07-01', u'shop_code': u'HB13BL', u'scandata': u'61', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u90f4\u5dde\u5e02', u'reportdata': u'93', u'rate': u'92', u'shop_address': u'\u6e56\u5357\u7701\u90f4\u5dde\u5e02\u82cf\u4ed9\u533a\u516b\u4e00\u8def\u751f\u6e90\u65f6\u4ee3\u5e7f\u573a\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170359', u'scan_count': u'105', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'94', u'shop_name': u'\u90f4\u5dde\u751f\u6e90\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6720', u'upload_count': u'105', u'date': u'2017-07-01', u'shop_code': u'HD07BL', u'scandata': u'86', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6000\u5316\u5e02', u'reportdata': u'25', u'rate': u'92', u'shop_address': u'\u6e56\u5357\u7701\u6000\u5316\u5e02\u9e64\u57ce\u533a\u8fce\u4e30\u897f\u8def207\u53f7\u743c\u5929\u5927\u53a6\u6b65\u6b65\u9ad8\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170355', u'scan_count': u'36', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'25', u'shop_name': u'\u6000\u5316\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6773', u'upload_count': u'0', u'date': u'2017-07-01', u'shop_code': u'HB38BL', u'scandata': u'23', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'rate': u'64', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'date': u'2017-07-01', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u682a\u6d32\u5e02', u'reportdata': u'24', u'rate': u'63', u'shop_address': u'\u6e56\u5357\u7701\u682a\u6d32\u5e02\u82a6\u6dde\u533a\u5efa\u8bbe\u4e2d\u8def1\u53f7\u682a\u6d32\u767e\u8d27\u5927\u697c1\u697cST\u4e13\u67dc', u'scanner_id': u'BL170307', u'scan_count': u'29', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'24', u'shop_name': u'\u682a\u6d32\u767e\u8d27ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6872', u'upload_count': u'40', u'date': u'2017-07-01', u'shop_code': u'H824ST', u'scandata': u'15', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'rate': u'71', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'date': u'2017-07-01', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'rate': u'69', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'date': u'2017-07-01', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'rate': u'88', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'date': u'2017-07-01', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'rate': u'60', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'date': u'2017-07-01', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'39', u'rate': u'69', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u8299\u84c9\u5357\u8def\u4e09\u6bb527\u53f7', u'scanner_id': u'BL160138', u'scan_count': u'54', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'39', u'shop_name': u'\u957f\u6c99\u53cb\u963f\u5965\u7279\u83b1\u65af\u9ad8\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'6642', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB17ZH', u'scandata': u'27', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'rate': u'84', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'date': u'2017-07-01', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'rate': u'74', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'date': u'2017-07-01', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_regionid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.7')" >
+        pass</a>
+
+    <div id='div_pt3.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.7: {u'data': {u'count': {u'reportdata': u'1346', u'running_total_day': u'28', u'scan_count': u'1603', u'rate': u'79%', u'wechat_count': u'1349', u'upload_count': u'1572', u'scandata': u'1068'}, u'paging': {u'page_count': 2, u'total_count': u'28', u'record_end': 20, u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'44', u'rate': u'86', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u4e1c\u897f\u6e56\u533a\u5434\u5bb6\u5c71\u7530\u56ed\u5927\u9053\u72791\u53f7', u'scanner_id': u'BL170458', u'scan_count': u'55', u'brand': u'BS', u'shop_class': None, u'wechat_count': u'44', u'shop_name': u'\u6b66\u6c49\u5434\u5bb6\u5c71\u4e2d\u5fc3\u767e\u8d27BST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7118', u'upload_count': u'55', u'date': u'2017-07-01', u'shop_code': u'HA70BS', u'scandata': u'38', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u8944\u9633\u5e02', u'reportdata': u'99', u'rate': u'72', u'shop_address': u'\u6e56\u5317\u7701\u8944\u9633\u5e02\u6a0a\u57ce\u533a\u957f\u8679\u8def\u6c11\u53d1\u5546\u4e1a\u5e7f\u573a\u6b66\u5546\u8d2d\u7269\u4e2d\u5fc3\u4e00\u697c', u'scanner_id': u'BL170450', u'scan_count': u'112', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'99', u'shop_name': u'\u8944\u6a0a\u6b66\u5546\u8d2d\u7269\u4e2d\u5fc3ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7368', u'upload_count': u'91', u'date': u'2017-07-01', u'shop_code': u'H628ST', u'scandata': u'71', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'28', u'rate': u'46', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6b66\u660c\u533a\u4e2d\u5357\u8def12\u53f7', u'scanner_id': u'BL170444', u'scan_count': u'42', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'28', u'shop_name': u'\u6b66\u6c49\u94f6\u6cf0\u767e\u8d27\u4e16\u7eaa\u5e97SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7349', u'upload_count': u'42', u'date': u'2017-07-01', u'shop_code': u'HA83SD', u'scandata': u'13', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'111', u'rate': u'83', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u9ec4\u9642\u533a\u76d8\u9f99\u5927\u9053196\u53f7A\u533a2\u697c200\u53f7', u'scanner_id': u'BL170441', u'scan_count': u'121', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'111', u'shop_name': u'\u6b66\u6c49\u767e\u8054\u5965\u83b1\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'7206', u'upload_count': u'121', u'date': u'2017-07-01', u'shop_code': u'HA03ZH', u'scandata': u'92', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u8861\u9633\u5e02', u'reportdata': u'28', u'rate': u'71', u'shop_address': u'\u6e56\u5357\u7701\u8861\u9633\u5e02\u96c1\u5cf0\u533a\u89e3\u653e\u8def121\u53f7(\u84b8\u6e58\u8def\u8def\u53e3)\u5927\u6d0b\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170421', u'scan_count': u'34', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'28', u'shop_name': u'\u8861\u9633\u5927\u6d0b\u767e\u8d27SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6735', u'upload_count': u'34', u'date': u'2017-07-01', u'shop_code': u'HB71SD', u'scandata': u'20', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u5b9c\u660c\u5e02', u'reportdata': u'91', u'rate': u'93', u'shop_address': u'\u6e56\u5317\u7701\u5b9c\u660c\u5e02\u897f\u9675\u533a\u5937\u9675\u5927\u905352-2\u53f7cbd\u6052\u57fa\u56fd\u9645', u'scanner_id': u'BL170414', u'scan_count': u'103', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'91', u'shop_name': u'\u5b9c\u660c\u5927\u6d0b\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7440', u'upload_count': u'103', u'date': u'2017-07-01', u'shop_code': u'HC09BL', u'scandata': u'85', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'22', u'rate': u'95', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c5f\u6c49\u533a\u89e3\u653e\u5927\u9053690\u53f7\u6b66\u6c49\u56fd\u9645\u5e7f\u573a\u5999\u4e3d', u'scanner_id': u'BL170386', u'scan_count': u'28', u'brand': u'ML', u'shop_class': None, u'wechat_count': u'22', u'shop_name': u'\u6b66\u6c49\u56fd\u9645\u5e7f\u573aMLS', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7281', u'upload_count': u'28', u'date': u'2017-07-01', u'shop_code': u'HAB1ML', u'scandata': u'21', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u5b9c\u660c\u5e02', u'reportdata': u'71', u'rate': u'89', u'shop_address': u'\u6e56\u5317\u7701\u5b9c\u660c\u5e02\u897f\u9675\u533a\u4e1c\u5c71\u5927\u9053106\u53f7\u56fd\u8d38\u5927\u53a6\u4e8c\u697c\u5929\u7f8e\u610f\u4e13\u67dc', u'scanner_id': u'BL170382', u'scan_count': u'71', u'brand': u'TM', u'shop_class': None, u'wechat_count': u'72', u'shop_name': u'\u5b9c\u660c\u56fd\u8d38TM', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7416', u'upload_count': u'71', u'date': u'2017-07-01', u'shop_code': u'HA15TM', u'scandata': u'63', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6e58\u6f6d\u5e02', u'reportdata': u'72', u'rate': u'85', u'shop_address': u'\u6e56\u5357\u7701\u6e58\u6f6d\u5e02\u5cb3\u5858\u533a\u5efa\u8bbe\u8def\u53e3\u534e\u9686\u6b65\u6b65\u9ad8A\u680b\u4e00\u697cBL\u4e13\u67dc', u'scanner_id': u'BL170364', u'scan_count': u'94', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'72', u'shop_name': u'\u6e58\u6f6d\u534e\u9686\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6813', u'upload_count': u'93', u'date': u'2017-07-01', u'shop_code': u'HB13BL', u'scandata': u'61', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u90f4\u5dde\u5e02', u'reportdata': u'93', u'rate': u'92', u'shop_address': u'\u6e56\u5357\u7701\u90f4\u5dde\u5e02\u82cf\u4ed9\u533a\u516b\u4e00\u8def\u751f\u6e90\u65f6\u4ee3\u5e7f\u573a\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170359', u'scan_count': u'105', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'94', u'shop_name': u'\u90f4\u5dde\u751f\u6e90\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6720', u'upload_count': u'105', u'date': u'2017-07-01', u'shop_code': u'HD07BL', u'scandata': u'86', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6000\u5316\u5e02', u'reportdata': u'25', u'rate': u'92', u'shop_address': u'\u6e56\u5357\u7701\u6000\u5316\u5e02\u9e64\u57ce\u533a\u8fce\u4e30\u897f\u8def207\u53f7\u743c\u5929\u5927\u53a6\u6b65\u6b65\u9ad8\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170355', u'scan_count': u'36', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'25', u'shop_name': u'\u6000\u5316\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6773', u'upload_count': u'0', u'date': u'2017-07-01', u'shop_code': u'HB38BL', u'scandata': u'23', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'rate': u'64', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'date': u'2017-07-01', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u8944\u9633\u5e02', u'reportdata': u'69', u'rate': u'77', u'shop_address': u'\u6e56\u5317\u7701\u8944\u9633\u5e02\u6a0a\u57ce\u533a\u957f\u5f81\u8def36\u53f7\u534e\u6d0b\u5802\u767e\u8d27', u'scanner_id': u'BL170323', u'scan_count': u'75', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'69', u'shop_name': u'\u8944\u6a0a\u534e\u6d0b\u5802ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7366', u'upload_count': u'75', u'date': u'2017-07-01', u'shop_code': u'H614ST', u'scandata': u'53', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u682a\u6d32\u5e02', u'reportdata': u'24', u'rate': u'63', u'shop_address': u'\u6e56\u5357\u7701\u682a\u6d32\u5e02\u82a6\u6dde\u533a\u5efa\u8bbe\u4e2d\u8def1\u53f7\u682a\u6d32\u767e\u8d27\u5927\u697c1\u697cST\u4e13\u67dc', u'scanner_id': u'BL170307', u'scan_count': u'29', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'24', u'shop_name': u'\u682a\u6d32\u767e\u8d27ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6872', u'upload_count': u'40', u'date': u'2017-07-01', u'shop_code': u'H824ST', u'scandata': u'15', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'rate': u'71', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'date': u'2017-07-01', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'rate': u'69', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'shop_class': None, u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'date': u'2017-07-01', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'rate': u'88', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'date': u'2017-07-01', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'27', u'rate': u'78', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c49\u9633\u533a\u6c5f\u57ce\u5927\u9053388\u53f7A\u533a1\u697cA116\u5546\u94fa', u'scanner_id': u'BL160165', u'scan_count': u'37', u'brand': u'ZH', u'shop_class': None, u'wechat_count': u'27', u'shop_name': u'\u6b66\u6c49\u6c38\u65fa\u68a6\u4e50\u57ce\u7ecf\u5f00\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'7128', u'upload_count': u'37', u'date': u'2017-07-01', u'shop_code': u'HA08ZH', u'scandata': u'21', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'34', u'rate': u'88', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c49\u9633\u533a\u9f99\u9633\u5927\u9053\u5927\u6d0b\u767e\u8d271\u697c\u601d\u52a0\u56fe\u4e13\u67dc', u'scanner_id': u'BL160156', u'scan_count': u'37', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'35', u'shop_name': u'\u6b66\u6c49\u9f99\u9633\u5927\u6d0bST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7123', u'upload_count': u'37', u'date': u'2017-07-01', u'shop_code': u'H635ST', u'scandata': u'30', u'region': u'\u534e\u4e2d'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'47', u'rate': u'83', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u9752\u5c71\u533a\u548c\u5e73\u5927\u9053955\u53f7\u6b66\u5546\u4f17\u5706\u5e7f\u573a\u4e00\u697c\u5929\u7f8e\u610f\u4e13\u67dc      ', u'scanner_id': u'BL160148', u'scan_count': u'62', u'brand': u'TM', u'shop_class': None, u'wechat_count': u'47', u'shop_name': u'\u6b66\u6c49\u6b66\u5546\u4f17\u5706\u5e7f\u573aTM', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7099', u'upload_count': u'78', u'date': u'2017-07-01', u'shop_code': u'HA35TM', u'scandata': u'39', u'region': u'\u534e\u4e2d'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_scanner_id</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.8')" >
+        pass</a>
+
+    <div id='div_pt3.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.8: {u'data': {u'count': {u'reportdata': u'1', u'running_total_day': u'1', u'scan_count': u'3', u'rate': u'100%', u'wechat_count': u'1', u'upload_count': u'3', u'scandata': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u91cd\u5e86\u5e02', u'city': u'\u91cd\u5e86\u5e02', u'reportdata': u'1', u'rate': u'100', u'shop_address': u'\u91cd\u5e86\u5e02\u5e02\u8f96\u533a\u5357\u5cb8\u533a\u60e0\u5de5\u8def192\u53f7\u65b0\u4e16\u7eaa\u4e8c\u697c', u'scanner_id': u'BL170961', u'scan_count': u'3', u'brand': u'ST', u'shop_class': None, u'wechat_count': u'1', u'shop_name': u'\u91cd\u5e86\u5357\u576a\u6c5f\u5357\u5546\u90fdST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6398', u'upload_count': u'3', u'date': u'2017-07-31', u'shop_code': u'G614ST', u'scandata': u'1', u'region': u'\u897f\u5357'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_code</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.9')" >
+        pass</a>
+
+    <div id='div_pt3.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.9: {u'data': {u'count': {u'reportdata': 0, u'running_total_day': 0, u'scan_count': 0, u'rate': u'0%', u'wechat_count': 0, u'upload_count': 0, u'scandata': 0}, u'paging': {u'page_count': 0, u'total_count': u'0', u'record_end': u'0', u'record_start': 0}, u'list': [], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_name</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.10')" >
+        pass</a>
+
+    <div id='div_pt3.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.10: {u'data': {u'count': {u'reportdata': 0, u'running_total_day': 0, u'scan_count': 0, u'rate': u'0%', u'wechat_count': 0, u'upload_count': 0, u'scandata': 0}, u'paging': {u'page_count': 0, u'total_count': u'0', u'record_end': u'0', u'record_start': 0}, u'list': [], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt3.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_type</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.11')" >
+        pass</a>
+
+    <div id='div_pt3.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt3.11: {u'data': {u'count': {u'reportdata': u'242', u'running_total_day': u'8', u'scan_count': u'287', u'rate': u'86%', u'wechat_count': u'243', u'upload_count': u'308', u'scandata': u'208'}, u'paging': {u'page_count': 1, u'total_count': u'8', u'record_end': u'8', u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6c55\u5934\u5e02', u'reportdata': u'13', u'rate': u'92', u'shop_address': u'\u5e7f\u4e1c\u7701\u6c55\u5934\u5e02\u9f99\u6e56\u533a\u957f\u5e73\u8def\u4e30\u6cfd\u5e84\u535c\u8702\u83b2\u82b1\u8d85\u5e02\u9996\u5c42', u'scanner_id': u'BL170561', u'scan_count': u'16', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'13', u'shop_name': u'\u6c55\u5934\u957f\u5e73\u8def\u535c\u8702\u83b2\u82b1\u8d2d\u7269\u5546\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'10184', u'upload_count': u'15', u'date': u'2017-07-01', u'shop_code': u'K807BL', u'scandata': u'12', u'region': u'\u534e\u5357'}, {u'province': u'\u6c5f\u82cf\u7701', u'city': u'\u5357\u4eac\u5e02', u'reportdata': u'24', u'rate': u'83', u'shop_address': u'\u6c5f\u82cf\u7701\u5357\u4eac\u5e02\u6c5f\u5b81\u533a\u91d1\u7b94\u8def999\u53f71\u697c', u'scanner_id': u'BL170479', u'scan_count': u'30', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'24', u'shop_name': u'\u5357\u4eac\u534e\u6da6\u82cf\u679cBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'8491', u'upload_count': u'30', u'date': u'2017-07-01', u'shop_code': u'IK29BL', u'scandata': u'20', u'region': u'\u534e\u4e1c'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'31', u'rate': u'84', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u672a\u592e\u533a\u672a\u592e\u8def126\u53f7\u4eba\u4eba\u4e50\u8d5b\u9ad8\u5e97\u4e00\u5c42Belle\u4e13\u67dc', u'scanner_id': u'BL170370', u'scan_count': u'38', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'31', u'shop_name': u'\u897f\u5b89\u672a\u592e\u8def\u4eba\u4eba\u4e50BL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4683', u'upload_count': u'38', u'date': u'2017-07-01', u'shop_code': u'FA24BL', u'scandata': u'26', u'region': u'\u897f\u5317'}, {u'province': u'\u5c71\u897f\u7701', u'city': u'\u8fd0\u57ce\u5e02', u'reportdata': u'53', u'rate': u'85', u'shop_address': u'\u5c71\u897f\u7701\u8fd0\u57ce\u5e02\u76d0\u6e56\u533a\u8fd0\u57ce\u5e02\u76d0\u6e56\u533a\u6cb3\u4e1c\u4e1c\u8857\u6c83\u5c14\u739b\u8d2d\u8d2d\u7269\u5e7f\u573a\u4e00\u5c42', u'scanner_id': u'BL170312', u'scan_count': u'61', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'54', u'shop_name': u'\u8fd0\u57ce\u6c83\u5c14\u739bBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2977', u'upload_count': u'75', u'date': u'2017-07-01', u'shop_code': u'DY32BL', u'scandata': u'45', u'region': u'\u534e\u5317'}, {u'province': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a', u'city': u'\u6842\u6797\u5e02', u'reportdata': u'51', u'rate': u'82', u'shop_address': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a\u6842\u6797\u5e02\u4e03\u661f\u533a\u6f13\u6c5f\u8def26\u53f7\u56fd\u5c55\u4e2d\u5fc3\u5357\u57ce\u767e\u8d27\u4e00\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160243', u'scan_count': u'59', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'50', u'shop_name': u'\u6842\u6797\u6f13\u6c5f\u8def\u5357\u57ce\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'10785', u'upload_count': u'66', u'date': u'2017-07-01', u'shop_code': u'K646BL', u'scandata': u'42', u'region': u'\u534e\u5357'}, {u'province': u'\u8d35\u5dde\u7701', u'city': u'\u8d35\u9633\u5e02', u'reportdata': u'5', u'rate': u'100', u'shop_address': u'\u8d35\u5dde\u7701\u8d35\u9633\u5e02\u4e91\u5ca9\u533a\u5bcc\u6c34\u5317\u8def\u5317\u4eac\u534e\u8054\u683c\u5170\u7279\u5546\u573a1\u697c', u'scanner_id': u'BL160144', u'scan_count': u'7', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'5', u'shop_name': u'\u8d35\u9633\u683c\u5170\u7279BL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'12529', u'upload_count': u'6', u'date': u'2017-07-01', u'shop_code': u'MG18BL', u'scandata': u'5', u'region': u'\u534e\u5357'}, {u'province': u'\u6d59\u6c5f\u7701', u'city': u'\u676d\u5dde\u5e02', u'reportdata': u'18', u'rate': u'78', u'shop_address': u'\u6d59\u6c5f\u7701\u676d\u5dde\u5e02\u897f\u6e56\u533a\u6587\u4e8c\u897f\u8def2\u53f71\u697c', u'scanner_id': u'BL160094', u'scan_count': u'26', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'18', u'shop_name': u'\u676d\u5dde\u534e\u5546\u4e16\u7eaa\u8054\u534eBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'9262', u'upload_count': u'26', u'date': u'2017-07-01', u'shop_code': u'IG33BL', u'scandata': u'14', u'region': u'\u534e\u4e1c'}, {u'province': u'\u5c71\u897f\u7701', u'city': u'\u592a\u539f\u5e02', u'reportdata': u'47', u'rate': u'94', u'shop_address': u'\u5c71\u897f\u7701\u592a\u539f\u5e02\u5c0f\u5e97\u533a\u5c71\u897f\u7701\u592a\u539f\u5e02\u5c0f\u5e97\u533a\u5eb7\u5b81\u88571\u53f7', u'scanner_id': u'BL160087', u'scan_count': u'50', u'brand': u'BL', u'shop_class': None, u'wechat_count': u'48', u'shop_name': u'\u592a\u539f\u7f8e\u90fd\u6c47\u8d2d\u7269\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2807', u'upload_count': u'52', u'date': u'2017-07-01', u'shop_code': u'DY23BL', u'scandata': u'44', u'region': u'\u534e\u5317'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>count_summary_test.CountSummaryTest</td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c4',11)">Detail</a></td>
+</tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_not_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.1')" >
+        pass</a>
+
+    <div id='div_pt4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.1: {u'errcode': 90000, u'errmsg': u'\u767b\u5f55\u5931\u6548/\u8d85\u65f6'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        pass</a>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: {u'data': {u'count': {u'reportdata': u'243241', u'running_total_day': u'8086', u'scan_count': u'300682', u'rate': u'87%', u'wechat_count': u'244562', u'upload_count': u'299106', u'scandata': u'211008'}, u'paging': {u'page_count': 18, u'total_count': u'349', u'record_end': 20, u'record_start': 1}, u'list': [{u'province': u'\u91cd\u5e86\u5e02', u'city': u'\u91cd\u5e86\u5e02', u'reportdata': u'14', u'concatime': u'2017-07-31 ~ 2018-07-31', u'shop_address': u'\u91cd\u5e86\u5e02\u5e02\u8f96\u533a\u5357\u5cb8\u533a\u5357\u57ce\u5927\u90538\u53f7\u4e00\u697c', u'scanner_id': u'BL170998', u'scan_count': u'18', u'brand': u'BL', u'wechat_count': u'14', u'shop_name': u'\u91cd\u5e86\u5357\u576a\u4e07\u8fbe\u8d2d\u7269\u5e7f\u573a\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6428', u'upload_count': u'18', u'shop_code': u'GO30BL', u'scandata': u'14', u'region': u'\u897f\u5357', u'rate': u'100'}, {u'province': u'\u5317\u4eac\u5e02', u'city': u'\u5317\u4eac\u5e02', u'reportdata': u'12', u'concatime': u'2017-07-28 ~ 2018-07-28', u'shop_address': u'\u5317\u4eac\u5e02\u5e02\u8f96\u533a\u671d\u9633\u533a\u592a\u9633\u5bab\u4e2d\u8def12\u53f7', u'scanner_id': u'BL170996', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'13', u'shop_name': u'\u5317\u4eac\u592a\u9633\u5bab\u51ef\u5fb7\u5e97BL', u'running_total_day': u'4', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'1426', u'upload_count': u'12', u'shop_code': u'DBI3BL', u'scandata': u'11', u'region': u'\u534e\u5317', u'rate': u'92'}, {u'province': u'\u5317\u4eac\u5e02', u'city': u'\u5317\u4eac\u5e02', u'reportdata': u'10', u'concatime': u'2017-07-28 ~ 2018-08-28', u'shop_address': u'\u5317\u4eac\u5e02\u5e02\u8f96\u533a\u6d77\u6dc0\u533a\u6210\u5e9c\u8def28\u53f7', u'scanner_id': u'BL170992', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'10', u'shop_name': u'\u5317\u4eac\u4e94\u9053\u53e3\u534e\u8054BL', u'running_total_day': u'3', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'1753', u'upload_count': u'12', u'shop_code': u'DB90BL', u'scandata': u'10', u'region': u'\u534e\u5317', u'rate': u'100'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u5b89\u5eb7\u5e02', u'reportdata': u'4', u'concatime': u'2017-07-31 ~ 2018-07-31', u'shop_address': u'\u9655\u897f\u7701\u5b89\u5eb7\u5e02\u6c49\u6ee8\u533a\u91d1\u5dde\u5357\u8def95\u53f7\u65f6\u4ee3\u8d2d\u7269\u5e7f\u573a\u4e00\u5c42Belle\u4e13\u67dc', u'scanner_id': u'BL170970', u'scan_count': u'4', u'brand': u'BL', u'wechat_count': u'4', u'shop_name': u'\u5b89\u5eb7\u5174\u5b89\u8def\u65f6\u4ee3\u8d2d\u7269BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'4444', u'upload_count': u'5', u'shop_code': u'FJ01BL', u'scandata': u'4', u'region': u'\u897f\u5317', u'rate': u'100'}, {u'province': u'\u91cd\u5e86\u5e02', u'city': u'\u91cd\u5e86\u5e02', u'reportdata': u'21', u'concatime': u'2017-07-28 ~ 2018-07-28', u'shop_address': u'\u91cd\u5e86\u5e02\u5e02\u8f96\u533a\u6c38\u5ddd\u533a\u4eba\u6c11\u5357\u8def66\u53f7\u5d07\u5c1a\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170950', u'scan_count': u'30', u'brand': u'BL', u'wechat_count': u'24', u'shop_name': u'\u6c38\u5ddd\u5d07\u5c1a\u767e\u8d27BL', u'running_total_day': u'2', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6504', u'upload_count': u'30', u'shop_code': u'GI48BL', u'scandata': u'21', u'region': u'\u897f\u5357', u'rate': u'100'}, {u'province': u'\u91cd\u5e86\u5e02', u'city': u'\u91cd\u5e86\u5e02', u'reportdata': u'16', u'concatime': u'2017-07-28 ~ 2018-07-28', u'shop_address': u'\u91cd\u5e86\u5e02\u5e02\u8f96\u533a\u6c38\u5ddd\u533a\u6e1d\u897f\u5927\u9053\u4e2d\u6bb5918\u53f7\u4e2d\u592e\u5927\u885711\u53f7\u697c\u65b0\u4e16\u7eaa\u4e00\u697c', u'scanner_id': u'BL170927', u'scan_count': u'20', u'brand': u'BL', u'wechat_count': u'17', u'shop_name': u'\u6c38\u5ddd\u65b0\u4e16\u7eaaBL', u'running_total_day': u'2', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6503', u'upload_count': u'20', u'shop_code': u'GI47BL', u'scandata': u'15', u'region': u'\u897f\u5357', u'rate': u'94'}, {u'province': u'\u8fbd\u5b81\u7701', u'city': u'\u76d8\u9526\u5e02', u'reportdata': u'2', u'concatime': u'2017-07-30 ~ 2018-07-30', u'shop_address': u'\u8fbd\u5b81\u7701\u76d8\u9526\u5e02\u5174\u9686\u53f0\u533a\u5174\u9686\u53f0\u6b65\u884c\u8857\u5357\u65b0\u739b\u7279\u603b\u5e97\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170918', u'scan_count': u'4', u'brand': u'BL', u'wechat_count': u'3', u'shop_name': u'\u76d8\u9526\u65b0\u739b\u7279\u603b\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'801', u'upload_count': u'4', u'shop_code': u'CE19BL', u'scandata': u'2', u'region': u'\u4e1c\u5317', u'rate': u'100'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u77f3\u5bb6\u5e84\u5e02', u'reportdata': u'323', u'concatime': u'2017-07-26 ~ 2018-07-26', u'shop_address': u'\u6cb3\u5317\u7701\u77f3\u5bb6\u5e84\u5e02\u6865\u897f\u533a\u88d5\u534e\u897f\u8def15\u53f7', u'scanner_id': u'BL170916', u'scan_count': u'392', u'brand': u'BL', u'wechat_count': u'327', u'shop_name': u'\u77f3\u5bb6\u5e84\u4e07\u8c61\u5929\u6210BL', u'running_total_day': u'6', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'2374', u'upload_count': u'138', u'shop_code': u'DS13BL', u'scandata': u'275', u'region': u'\u534e\u5317', u'rate': u'85'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u4fdd\u5b9a\u5e02', u'reportdata': u'17', u'concatime': u'2017-07-31 ~ 2018-07-31', u'shop_address': u'\u6cb3\u5317\u7701\u4fdd\u5b9a\u5e02\u6dbf\u5dde\u5e02\u8303\u9633\u8def252\u53f7\u4e00\u5c42', u'scanner_id': u'BL170899', u'scan_count': u'20', u'brand': u'BL', u'wechat_count': u'17', u'shop_name': u'\u6dbf\u5dde\u60e0\u53cb\u94bb\u77f3\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'2025', u'upload_count': u'20', u'shop_code': u'DD16BL', u'scandata': u'16', u'region': u'\u534e\u5317', u'rate': u'94'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u77f3\u5bb6\u5e84\u5e02', u'reportdata': u'246', u'concatime': u'2017-07-26 ~ 2018-07-26', u'shop_address': u'\u6cb3\u5317\u7701\u77f3\u5bb6\u5e84\u5e02\u6865\u4e1c\u533a\u4e2d\u5c71\u4e1c\u8def11\u53f7\u4e50\u6c47\u57ce', u'scanner_id': u'BL170896', u'scan_count': u'275', u'brand': u'BL', u'wechat_count': u'246', u'shop_name': u'\u77f3\u5bb6\u5e84\u4e50\u6c47\u57ceBL', u'running_total_day': u'6', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'2433', u'upload_count': u'275', u'shop_code': u'DS36BL', u'scandata': u'229', u'region': u'\u534e\u5317', u'rate': u'93'}, {u'province': u'\u5409\u6797\u7701', u'city': u'\u5ef6\u8fb9\u671d\u9c9c\u65cf\u81ea\u6cbb\u5dde', u'reportdata': u'20', u'concatime': u'2017-07-20 ~ 2018-07-20', u'shop_address': u'\u5409\u6797\u7701\u5ef6\u8fb9\u671d\u9c9c\u65cf\u81ea\u6cbb\u5dde\u5ef6\u5409\u5e02\u5149\u660e\u8857608\u53f7\u767e\u8d27\u5927\u697cA\u5ea7\u56db\u697c\u978b\u5e3d\u5546\u573a\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170890', u'scan_count': u'24', u'brand': u'BL', u'wechat_count': u'22', u'shop_name': u'\u5ef6\u5409\u767e\u8d27\u5927\u697cBL', u'running_total_day': u'3', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'229', u'upload_count': u'24', u'shop_code': u'CQ12BL', u'scandata': u'20', u'region': u'\u4e1c\u5317', u'rate': u'100'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u6ca7\u5dde\u5e02', u'reportdata': u'272', u'concatime': u'2017-07-27 ~ 2018-07-27', u'shop_address': u'\u6cb3\u5317\u7701\u6ca7\u5dde\u5e02\u8fd0\u6cb3\u533a\u89e3\u653e\u8def\u9890\u548c\u5e7f\u573a\u540c\u5929\u8d2d\u7269\u4e2d\u5fc3', u'scanner_id': u'BL170888', u'scan_count': u'321', u'brand': u'BL', u'wechat_count': u'272', u'shop_name': u'\u6ca7\u5dde\u540c\u5929\u8d2d\u7269BL', u'running_total_day': u'5', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'2047', u'upload_count': u'321', u'shop_code': u'DS28BL', u'scandata': u'253', u'region': u'\u534e\u5317', u'rate': u'93'}, {u'province': u'\u8fbd\u5b81\u7701', u'city': u'\u629a\u987a\u5e02', u'reportdata': u'0', u'concatime': u'2017-07-30 ~ 2018-07-30', u'shop_address': u'\u8fbd\u5b81\u7701\u629a\u987a\u5e02\u65b0\u629a\u533a\u88d5\u6c11\u8def24\u53f7\u6d59\u5546\u65b0\u739b\u72792\u53f7\u9986\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170887', u'scan_count': u'3', u'brand': u'BL', u'wechat_count': u'0', u'shop_name': u'\u629a\u987a\u6d59\u5546\u65b0\u739b\u7279\u5973\u978bBL', u'running_total_day': u'0', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'700', u'upload_count': u'3', u'shop_code': u'CF10BL', u'scandata': u'0', u'region': u'\u4e1c\u5317', u'rate': 0}, {u'province': u'\u9ed1\u9f99\u6c5f\u7701', u'city': u'\u5927\u5e86\u5e02', u'reportdata': u'80', u'concatime': u'2017-07-28 ~ 2018-07-28', u'shop_address': u'\u5927\u5e86\u5e02\u8ba9\u80e1\u8def\u533a\u4e58\u98ce\u5927\u885755\u53f7', u'scanner_id': u'BL170885', u'scan_count': u'96', u'brand': u'BL', u'wechat_count': u'80', u'shop_name': u'\u5927\u5e86\u4e58\u98ce\u65b0\u739b\u7279BL', u'running_total_day': u'4', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'43513', u'upload_count': u'96', u'shop_code': u' CU63BL', u'scandata': u'76', u'region': u'\u4e1c\u5317', u'rate': u'95'}, {u'province': u'\u8fbd\u5b81\u7701', u'city': u'\u846b\u82a6\u5c9b\u5e02', u'reportdata': u'0', u'concatime': u'2017-07-30 ~ 2018-07-30', u'shop_address': u'\u8fbd\u5b81\u7701\u846b\u82a6\u5c9b\u5e02\u8fde\u5c71\u533a\u5174\u5de5\u5927\u88571\u53f7\u846b\u82a6\u5c9b\u767e\u8d27\u5927\u697c\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170876', u'scan_count': u'3', u'brand': u'BL', u'wechat_count': u'1', u'shop_name': u'\u846b\u82a6\u5c9b\u767e\u8d27\u5927\u697cBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'730', u'upload_count': u'3', u'shop_code': u'CE41BL', u'scandata': u'0', u'region': u'\u4e1c\u5317', u'rate': 0}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'377', u'concatime': u'2017-07-15 ~ 2017-08-31', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u798f\u7530\u533a\u516b\u5366\u4e8c\u8def526\u680b\u5929\u5929\u9970\u5c55\u4e2d\u5fc3\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170871', u'scan_count': u'485', u'brand': u'BL', u'wechat_count': u'381', u'shop_name': u'\u6df1\u5733\u516b\u5366\u4e8c\u8def\u5929\u5929\u9970\u5c55\u4e2d\u5fc3\u5e97BL', u'running_total_day': u'16', u'shop_type': u'\u8857\u94fa', u'shop_id': u'10475', u'upload_count': u'485', u'shop_code': u'KS19BL', u'scandata': u'312', u'region': u'\u534e\u5357', u'rate': u'83'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'532', u'concatime': u'2017-07-13 ~ 2018-07-13', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u7f57\u6e56\u533a\u4e1c\u95e8\u4e2d\u8def2047\u53f7\u8302\u4e1a\u767e\u8d27\u4e8c\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170861', u'scan_count': u'709', u'brand': u'BL', u'wechat_count': u'538', u'shop_name': u'\u6df1\u5733\u4e1c\u95e8\u4e2d\u8def\u8302\u4e1a\u767e\u8d27BL', u'running_total_day': u'19', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'10231', u'upload_count': u'709', u'shop_code': u'K305BL', u'scandata': u'468', u'region': u'\u534e\u5357', u'rate': u'88'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4e1c\u839e\u5e02', u'reportdata': u'357', u'concatime': u'2017-07-19 ~ 2017-07-30', u'shop_address': u'\u5e7f\u4e1c\u7701\u4e1c\u839e\u5e02\u4e1c\u839e\u5e02\u4e1c\u57ce\u5927\u9053283\u53f7\u4e16\u535a\u5e7f\u573aA\u533a\u6d77\u96c5\u767e\u8d27\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170859', u'scan_count': u'516', u'brand': u'BL', u'wechat_count': u'361', u'shop_name': u'\u4e1c\u839e\u4e1c\u57ce\u5927\u9053\u6d77\u96c5\u767e\u8d27BL', u'running_total_day': u'10', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'9865', u'upload_count': u'516', u'shop_code': u'K507BL', u'scandata': u'288', u'region': u'\u534e\u5357', u'rate': u'81'}, {u'province': u'\u6c5f\u82cf\u7701', u'city': u'\u82cf\u5dde\u5e02', u'reportdata': u'94', u'concatime': u'2017-07-17 ~ 2018-07-17', u'shop_address': u'\u6c5f\u82cf\u7701\u82cf\u5dde\u5e02\u6606\u5c71\u5e02\u73e0\u6c5f\u4e2d\u8def199\u53f72F', u'scanner_id': u'BL170858', u'scan_count': u'195', u'brand': u'BL', u'wechat_count': u'94', u'shop_name': u'\u6606\u5c71\u91d1\u9e70BL', u'running_total_day': u'12', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'8807', u'upload_count': u'68', u'shop_code': u'IB37BL', u'scandata': u'61', u'region': u'\u534e\u4e1c', u'rate': u'65'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6df1\u5733\u5e02', u'reportdata': u'222', u'concatime': u'2017-07-15 ~ 2018-07-15', u'shop_address': u'\u5e7f\u4e1c\u7701\u6df1\u5733\u5e02\u9f99\u5c97\u533a\u9f99\u7fd4\u5927\u9053\u4e5d\u5dde\u4e07\u79d1\u5e7f\u573a\u4e8c\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170857', u'scan_count': u'339', u'brand': u'BL', u'wechat_count': u'224', u'shop_name': u'\u6df1\u5733\u9f99\u5c97\u4e07\u79d1\u5e7f\u573a\u5e97BL', u'running_total_day': u'15', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'10556', u'upload_count': u'339', u'shop_code': u'KS04BL', u'scandata': u'114', u'region': u'\u534e\u5357', u'rate': u'51'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.3')" >
+        pass</a>
+
+    <div id='div_pt4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.3: {u'data': {u'count': {u'reportdata': u'87', u'running_total_day': u'3', u'scan_count': u'104', u'rate': u'77%', u'wechat_count': u'87', u'upload_count': u'104', u'scandata': u'67'}, u'paging': {u'page_count': 1, u'total_count': u'3', u'record_end': u'3', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d', u'rate': u'60'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d', u'rate': u'84'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'concatime': u'2017-05-19 ~ 2017-07-26', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d', u'rate': u'74'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_brand_cityid_type</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+        pass</a>
+
+    <div id='div_pt4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.4: {u'data': {u'count': {u'reportdata': u'87', u'running_total_day': u'3', u'scan_count': u'104', u'rate': u'77%', u'wechat_count': u'87', u'upload_count': u'104', u'scandata': u'67'}, u'paging': {u'page_count': 1, u'total_count': u'3', u'record_end': u'3', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d', u'rate': u'60'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d', u'rate': u'84'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'concatime': u'2017-05-19 ~ 2017-07-26', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d', u'rate': u'74'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_cityid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
+        pass</a>
+
+    <div id='div_pt4.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.5: {u'data': {u'count': {u'reportdata': u'256', u'running_total_day': u'8', u'scan_count': u'315', u'rate': u'76%', u'wechat_count': u'256', u'upload_count': u'315', u'scandata': u'194'}, u'paging': {u'page_count': 1, u'total_count': u'8', u'record_end': u'8', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d', u'rate': u'64'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'concatime': u'2017-05-19 ~ 2017-08-24', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d', u'rate': u'71'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d', u'rate': u'69'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d', u'rate': u'88'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d', u'rate': u'60'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'39', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u8299\u84c9\u5357\u8def\u4e09\u6bb527\u53f7', u'scanner_id': u'BL160138', u'scan_count': u'54', u'brand': u'ZH', u'wechat_count': u'39', u'shop_name': u'\u957f\u6c99\u53cb\u963f\u5965\u7279\u83b1\u65af\u9ad8\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'6642', u'upload_count': u'54', u'shop_code': u'HB17ZH', u'scandata': u'27', u'region': u'\u534e\u4e2d', u'rate': u'69'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d', u'rate': u'84'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'concatime': u'2017-05-19 ~ 2017-07-26', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d', u'rate': u'74'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_provinceid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.6')" >
+        pass</a>
+
+    <div id='div_pt4.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.6: {u'data': {u'count': {u'reportdata': u'498', u'running_total_day': u'13', u'scan_count': u'613', u'rate': u'80%', u'wechat_count': u'499', u'upload_count': u'587', u'scandata': u'399'}, u'paging': {u'page_count': 1, u'total_count': u'13', u'record_end': u'13', u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5357\u7701', u'city': u'\u8861\u9633\u5e02', u'reportdata': u'28', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u8861\u9633\u5e02\u96c1\u5cf0\u533a\u89e3\u653e\u8def121\u53f7(\u84b8\u6e58\u8def\u8def\u53e3)\u5927\u6d0b\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170421', u'scan_count': u'34', u'brand': u'SD', u'wechat_count': u'28', u'shop_name': u'\u8861\u9633\u5927\u6d0b\u767e\u8d27SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6735', u'upload_count': u'34', u'shop_code': u'HB71SD', u'scandata': u'20', u'region': u'\u534e\u4e2d', u'rate': u'71'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6e58\u6f6d\u5e02', u'reportdata': u'72', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u6e58\u6f6d\u5e02\u5cb3\u5858\u533a\u5efa\u8bbe\u8def\u53e3\u534e\u9686\u6b65\u6b65\u9ad8A\u680b\u4e00\u697cBL\u4e13\u67dc', u'scanner_id': u'BL170364', u'scan_count': u'94', u'brand': u'BL', u'wechat_count': u'72', u'shop_name': u'\u6e58\u6f6d\u534e\u9686\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6813', u'upload_count': u'93', u'shop_code': u'HB13BL', u'scandata': u'61', u'region': u'\u534e\u4e2d', u'rate': u'85'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u90f4\u5dde\u5e02', u'reportdata': u'93', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u90f4\u5dde\u5e02\u82cf\u4ed9\u533a\u516b\u4e00\u8def\u751f\u6e90\u65f6\u4ee3\u5e7f\u573a\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170359', u'scan_count': u'105', u'brand': u'BL', u'wechat_count': u'94', u'shop_name': u'\u90f4\u5dde\u751f\u6e90\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6720', u'upload_count': u'105', u'shop_code': u'HD07BL', u'scandata': u'86', u'region': u'\u534e\u4e2d', u'rate': u'92'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6000\u5316\u5e02', u'reportdata': u'25', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u6000\u5316\u5e02\u9e64\u57ce\u533a\u8fce\u4e30\u897f\u8def207\u53f7\u743c\u5929\u5927\u53a6\u6b65\u6b65\u9ad8\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170355', u'scan_count': u'36', u'brand': u'BL', u'wechat_count': u'25', u'shop_name': u'\u6000\u5316\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6773', u'upload_count': u'0', u'shop_code': u'HB38BL', u'scandata': u'23', u'region': u'\u534e\u4e2d', u'rate': u'92'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d', u'rate': u'64'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u682a\u6d32\u5e02', u'reportdata': u'24', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5357\u7701\u682a\u6d32\u5e02\u82a6\u6dde\u533a\u5efa\u8bbe\u4e2d\u8def1\u53f7\u682a\u6d32\u767e\u8d27\u5927\u697c1\u697cST\u4e13\u67dc', u'scanner_id': u'BL170307', u'scan_count': u'29', u'brand': u'ST', u'wechat_count': u'24', u'shop_name': u'\u682a\u6d32\u767e\u8d27ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6872', u'upload_count': u'40', u'shop_code': u'H824ST', u'scandata': u'15', u'region': u'\u534e\u4e2d', u'rate': u'63'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'concatime': u'2017-05-19 ~ 2017-08-24', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d', u'rate': u'71'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d', u'rate': u'69'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d', u'rate': u'88'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'10', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def69\u53f7\u6625\u5929\u767e\u8d273\u697c\u767e\u4e3d', u'scanner_id': u'BL160142', u'scan_count': u'12', u'brand': u'BL', u'wechat_count': u'10', u'shop_name': u'\u957f\u6c99\u6625\u5929\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6632', u'upload_count': u'12', u'shop_code': u'HB08BL', u'scandata': u'6', u'region': u'\u534e\u4e2d', u'rate': u'60'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'39', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u8299\u84c9\u5357\u8def\u4e09\u6bb527\u53f7', u'scanner_id': u'BL160138', u'scan_count': u'54', u'brand': u'ZH', u'wechat_count': u'39', u'shop_name': u'\u957f\u6c99\u53cb\u963f\u5965\u7279\u83b1\u65af\u9ad8\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'6642', u'upload_count': u'54', u'shop_code': u'HB17ZH', u'scandata': u'27', u'region': u'\u534e\u4e2d', u'rate': u'69'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'43', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5cb3\u9e93\u533a\u91d1\u661f\u4e2d\u8def428\u53f7\u6b65\u6b65\u9ad8\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160113', u'scan_count': u'54', u'brand': u'BL', u'wechat_count': u'43', u'shop_name': u'\u957f\u6c99\u6b65\u6b65\u9ad8\u5e7f\u573a\u91d1\u661f\u5e97BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6692', u'upload_count': u'54', u'shop_code': u'HB73BL', u'scandata': u'36', u'region': u'\u534e\u4e2d', u'rate': u'84'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'34', u'concatime': u'2017-05-19 ~ 2017-07-26', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u8f66\u7ad9\u8def1\u53f7\u963f\u6ce2\u7f57\u5e7f\u573a\u4e00\u697c\u767e\u4e3d', u'scanner_id': u'BL160084', u'scan_count': u'38', u'brand': u'BL', u'wechat_count': u'34', u'shop_name': u'\u957f\u6c99\u963f\u6ce2\u7f57\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6593', u'upload_count': u'38', u'shop_code': u'HB05BL', u'scandata': u'25', u'region': u'\u534e\u4e2d', u'rate': u'74'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_regionid</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.7')" >
+        pass</a>
+
+    <div id='div_pt4.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.7: {u'data': {u'count': {u'reportdata': u'1346', u'running_total_day': u'28', u'scan_count': u'1603', u'rate': u'79%', u'wechat_count': u'1349', u'upload_count': u'1572', u'scandata': u'1068'}, u'paging': {u'page_count': 2, u'total_count': u'28', u'record_end': 20, u'record_start': 1}, u'list': [{u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'44', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u4e1c\u897f\u6e56\u533a\u5434\u5bb6\u5c71\u7530\u56ed\u5927\u9053\u72791\u53f7', u'scanner_id': u'BL170458', u'scan_count': u'55', u'brand': u'BS', u'wechat_count': u'44', u'shop_name': u'\u6b66\u6c49\u5434\u5bb6\u5c71\u4e2d\u5fc3\u767e\u8d27BST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7118', u'upload_count': u'55', u'shop_code': u'HA70BS', u'scandata': u'38', u'region': u'\u534e\u4e2d', u'rate': u'86'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u8944\u9633\u5e02', u'reportdata': u'99', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5317\u7701\u8944\u9633\u5e02\u6a0a\u57ce\u533a\u957f\u8679\u8def\u6c11\u53d1\u5546\u4e1a\u5e7f\u573a\u6b66\u5546\u8d2d\u7269\u4e2d\u5fc3\u4e00\u697c', u'scanner_id': u'BL170450', u'scan_count': u'112', u'brand': u'ST', u'wechat_count': u'99', u'shop_name': u'\u8944\u6a0a\u6b66\u5546\u8d2d\u7269\u4e2d\u5fc3ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7368', u'upload_count': u'91', u'shop_code': u'H628ST', u'scandata': u'71', u'region': u'\u534e\u4e2d', u'rate': u'72'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'28', u'concatime': u'2017-06-16 ~ 2017-08-17', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6b66\u660c\u533a\u4e2d\u5357\u8def12\u53f7', u'scanner_id': u'BL170444', u'scan_count': u'42', u'brand': u'SD', u'wechat_count': u'28', u'shop_name': u'\u6b66\u6c49\u94f6\u6cf0\u767e\u8d27\u4e16\u7eaa\u5e97SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7349', u'upload_count': u'42', u'shop_code': u'HA83SD', u'scandata': u'13', u'region': u'\u534e\u4e2d', u'rate': u'46'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'111', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u9ec4\u9642\u533a\u76d8\u9f99\u5927\u9053196\u53f7A\u533a2\u697c200\u53f7', u'scanner_id': u'BL170441', u'scan_count': u'121', u'brand': u'ZH', u'wechat_count': u'111', u'shop_name': u'\u6b66\u6c49\u767e\u8054\u5965\u83b1\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u5965\u7279\u83b1\u65af', u'shop_id': u'7206', u'upload_count': u'121', u'shop_code': u'HA03ZH', u'scandata': u'92', u'region': u'\u534e\u4e2d', u'rate': u'83'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u8861\u9633\u5e02', u'reportdata': u'28', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u8861\u9633\u5e02\u96c1\u5cf0\u533a\u89e3\u653e\u8def121\u53f7(\u84b8\u6e58\u8def\u8def\u53e3)\u5927\u6d0b\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170421', u'scan_count': u'34', u'brand': u'SD', u'wechat_count': u'28', u'shop_name': u'\u8861\u9633\u5927\u6d0b\u767e\u8d27SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6735', u'upload_count': u'34', u'shop_code': u'HB71SD', u'scandata': u'20', u'region': u'\u534e\u4e2d', u'rate': u'71'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u5b9c\u660c\u5e02', u'reportdata': u'91', u'concatime': u'2017-06-18 ~ 2018-06-18', u'shop_address': u'\u6e56\u5317\u7701\u5b9c\u660c\u5e02\u897f\u9675\u533a\u5937\u9675\u5927\u905352-2\u53f7cbd\u6052\u57fa\u56fd\u9645', u'scanner_id': u'BL170414', u'scan_count': u'103', u'brand': u'BL', u'wechat_count': u'91', u'shop_name': u'\u5b9c\u660c\u5927\u6d0b\u767e\u8d27BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7440', u'upload_count': u'103', u'shop_code': u'HC09BL', u'scandata': u'85', u'region': u'\u534e\u4e2d', u'rate': u'93'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'22', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c5f\u6c49\u533a\u89e3\u653e\u5927\u9053690\u53f7\u6b66\u6c49\u56fd\u9645\u5e7f\u573a\u5999\u4e3d', u'scanner_id': u'BL170386', u'scan_count': u'28', u'brand': u'ML', u'wechat_count': u'22', u'shop_name': u'\u6b66\u6c49\u56fd\u9645\u5e7f\u573aMLS', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7281', u'upload_count': u'28', u'shop_code': u'HAB1ML', u'scandata': u'21', u'region': u'\u534e\u4e2d', u'rate': u'95'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u5b9c\u660c\u5e02', u'reportdata': u'71', u'concatime': u'2017-06-18 ~ 2018-06-18', u'shop_address': u'\u6e56\u5317\u7701\u5b9c\u660c\u5e02\u897f\u9675\u533a\u4e1c\u5c71\u5927\u9053106\u53f7\u56fd\u8d38\u5927\u53a6\u4e8c\u697c\u5929\u7f8e\u610f\u4e13\u67dc', u'scanner_id': u'BL170382', u'scan_count': u'71', u'brand': u'TM', u'wechat_count': u'72', u'shop_name': u'\u5b9c\u660c\u56fd\u8d38TM', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7416', u'upload_count': u'71', u'shop_code': u'HA15TM', u'scandata': u'63', u'region': u'\u534e\u4e2d', u'rate': u'89'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6e58\u6f6d\u5e02', u'reportdata': u'72', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u6e58\u6f6d\u5e02\u5cb3\u5858\u533a\u5efa\u8bbe\u8def\u53e3\u534e\u9686\u6b65\u6b65\u9ad8A\u680b\u4e00\u697cBL\u4e13\u67dc', u'scanner_id': u'BL170364', u'scan_count': u'94', u'brand': u'BL', u'wechat_count': u'72', u'shop_name': u'\u6e58\u6f6d\u534e\u9686\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6813', u'upload_count': u'93', u'shop_code': u'HB13BL', u'scandata': u'61', u'region': u'\u534e\u4e2d', u'rate': u'85'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u90f4\u5dde\u5e02', u'reportdata': u'93', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u90f4\u5dde\u5e02\u82cf\u4ed9\u533a\u516b\u4e00\u8def\u751f\u6e90\u65f6\u4ee3\u5e7f\u573a\u4e00\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL170359', u'scan_count': u'105', u'brand': u'BL', u'wechat_count': u'94', u'shop_name': u'\u90f4\u5dde\u751f\u6e90\u5e7f\u573aBL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6720', u'upload_count': u'105', u'shop_code': u'HD07BL', u'scandata': u'86', u'region': u'\u534e\u4e2d', u'rate': u'92'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u6000\u5316\u5e02', u'reportdata': u'25', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u6000\u5316\u5e02\u9e64\u57ce\u533a\u8fce\u4e30\u897f\u8def207\u53f7\u743c\u5929\u5927\u53a6\u6b65\u6b65\u9ad8\u767e\u8d27\u4e00\u697c', u'scanner_id': u'BL170355', u'scan_count': u'36', u'brand': u'BL', u'wechat_count': u'25', u'shop_name': u'\u6000\u5316\u6b65\u6b65\u9ad8BL', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6773', u'upload_count': u'0', u'shop_code': u'HB38BL', u'scandata': u'23', u'region': u'\u534e\u4e2d', u'rate': u'92'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'25', u'concatime': u'2017-06-14 ~ 2018-06-14', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u4e07\u5bb6\u4e3d\u4e2d\u8def2\u6bb58\u53f7\u534e\u6668\u5546\u4e1a\u5e7f\u573a', u'scanner_id': u'BL170336', u'scan_count': u'31', u'brand': u'ZH', u'wechat_count': u'25', u'shop_name': u'\u957f\u6c99\u5965\u83b1\u901a\u7a0b\u6298\u6263\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6661', u'upload_count': u'31', u'shop_code': u'HB04ZH', u'scandata': u'16', u'region': u'\u534e\u4e2d', u'rate': u'64'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u8944\u9633\u5e02', u'reportdata': u'69', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5317\u7701\u8944\u9633\u5e02\u6a0a\u57ce\u533a\u957f\u5f81\u8def36\u53f7\u534e\u6d0b\u5802\u767e\u8d27', u'scanner_id': u'BL170323', u'scan_count': u'75', u'brand': u'ST', u'wechat_count': u'69', u'shop_name': u'\u8944\u6a0a\u534e\u6d0b\u5802ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7366', u'upload_count': u'75', u'shop_code': u'H614ST', u'scandata': u'53', u'region': u'\u534e\u4e2d', u'rate': u'77'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u682a\u6d32\u5e02', u'reportdata': u'24', u'concatime': u'2017-06-16 ~ 2018-06-16', u'shop_address': u'\u6e56\u5357\u7701\u682a\u6d32\u5e02\u82a6\u6dde\u533a\u5efa\u8bbe\u4e2d\u8def1\u53f7\u682a\u6d32\u767e\u8d27\u5927\u697c1\u697cST\u4e13\u67dc', u'scanner_id': u'BL170307', u'scan_count': u'29', u'brand': u'ST', u'wechat_count': u'24', u'shop_name': u'\u682a\u6d32\u767e\u8d27ST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6872', u'upload_count': u'40', u'shop_code': u'H824ST', u'scandata': u'15', u'region': u'\u534e\u4e2d', u'rate': u'63'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'14', u'concatime': u'2017-05-19 ~ 2017-08-24', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u8299\u84c9\u533a\u4e94\u4e00\u5927\u9053153\u53f7\u65b0\u4e16\u754c\u767e\u8d271\u697c\u767e\u4e3d', u'scanner_id': u'BL160239', u'scan_count': u'20', u'brand': u'ZH', u'wechat_count': u'14', u'shop_name': u'\u957f\u6c99\u65b0\u4e16\u754c\u65f6\u5c1a\u4e2d\u7aef\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6600', u'upload_count': u'20', u'shop_code': u'HB12ZH', u'scandata': u'10', u'region': u'\u534e\u4e2d', u'rate': u'71'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'32', u'concatime': u'2017-05-19 ~ 2018-05-19', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u5929\u5fc3\u533a\u9ec4\u5174\u4e2d\u8def27\u53f7\u738b\u5e9c\u4e95\u767e\u8d27\u8d1f\u4e00\u697c', u'scanner_id': u'BL160186', u'scan_count': u'36', u'brand': u'SD', u'wechat_count': u'32', u'shop_name': u'\u957f\u6c99\u738b\u5e9c\u4e95\u767e\u8d27\u5973SD', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6634', u'upload_count': u'36', u'shop_code': u'HB09SD', u'scandata': u'22', u'region': u'\u534e\u4e2d', u'rate': u'69'}, {u'province': u'\u6e56\u5357\u7701', u'city': u'\u957f\u6c99\u5e02', u'reportdata': u'59', u'concatime': u'2017-05-18 ~ 2018-05-18', u'shop_address': u'\u6e56\u5357\u7701\u957f\u6c99\u5e02\u96e8\u82b1\u533a\u6e58\u5e9c\u4e2d\u8def18\u53f7\u5fb7\u601d\u52e4\u56db\u5b63\u6c472\u697c\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160166', u'scan_count': u'70', u'brand': u'ZH', u'wechat_count': u'59', u'shop_name': u'\u957f\u6c99\u5fb7\u601d\u52e4\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'6660', u'upload_count': u'70', u'shop_code': u'HB02ZH', u'scandata': u'52', u'region': u'\u534e\u4e2d', u'rate': u'88'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'27', u'concatime': u'2017-05-22 ~ 2018-05-22', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c49\u9633\u533a\u6c5f\u57ce\u5927\u9053388\u53f7A\u533a1\u697cA116\u5546\u94fa', u'scanner_id': u'BL160165', u'scan_count': u'37', u'brand': u'ZH', u'wechat_count': u'27', u'shop_name': u'\u6b66\u6c49\u6c38\u65fa\u68a6\u4e50\u57ce\u7ecf\u5f00\u7efc\u5408\u5e97', u'running_total_day': u'1', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3', u'shop_id': u'7128', u'upload_count': u'37', u'shop_code': u'HA08ZH', u'scandata': u'21', u'region': u'\u534e\u4e2d', u'rate': u'78'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'34', u'concatime': u'2017-05-17 ~ 2017-08-19', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u6c49\u9633\u533a\u9f99\u9633\u5927\u9053\u5927\u6d0b\u767e\u8d271\u697c\u601d\u52a0\u56fe\u4e13\u67dc', u'scanner_id': u'BL160156', u'scan_count': u'37', u'brand': u'ST', u'wechat_count': u'35', u'shop_name': u'\u6b66\u6c49\u9f99\u9633\u5927\u6d0bST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7123', u'upload_count': u'37', u'shop_code': u'H635ST', u'scandata': u'30', u'region': u'\u534e\u4e2d', u'rate': u'88'}, {u'province': u'\u6e56\u5317\u7701', u'city': u'\u6b66\u6c49\u5e02', u'reportdata': u'47', u'concatime': u'2017-05-22 ~ 2018-05-22', u'shop_address': u'\u6e56\u5317\u7701\u6b66\u6c49\u5e02\u9752\u5c71\u533a\u548c\u5e73\u5927\u9053955\u53f7\u6b66\u5546\u4f17\u5706\u5e7f\u573a\u4e00\u697c\u5929\u7f8e\u610f\u4e13\u67dc      ', u'scanner_id': u'BL160148', u'scan_count': u'62', u'brand': u'TM', u'wechat_count': u'47', u'shop_name': u'\u6b66\u6c49\u6b66\u5546\u4f17\u5706\u5e7f\u573aTM', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'7099', u'upload_count': u'78', u'shop_code': u'HA35TM', u'scandata': u'39', u'region': u'\u534e\u4e2d', u'rate': u'83'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_scanner_id</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.8')" >
+        pass</a>
+
+    <div id='div_pt4.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.8: {u'data': {u'count': {u'reportdata': u'1', u'running_total_day': u'1', u'scan_count': u'3', u'rate': u'100%', u'wechat_count': u'1', u'upload_count': u'3', u'scandata': u'1'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u91cd\u5e86\u5e02', u'city': u'\u91cd\u5e86\u5e02', u'reportdata': u'1', u'concatime': u'2017-07-31 ~ 2018-07-31', u'shop_address': u'\u91cd\u5e86\u5e02\u5e02\u8f96\u533a\u5357\u5cb8\u533a\u60e0\u5de5\u8def192\u53f7\u65b0\u4e16\u7eaa\u4e8c\u697c', u'scanner_id': u'BL170961', u'scan_count': u'3', u'brand': u'ST', u'wechat_count': u'1', u'shop_name': u'\u91cd\u5e86\u5357\u576a\u6c5f\u5357\u5546\u90fdST', u'running_total_day': u'1', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'6398', u'upload_count': u'3', u'shop_code': u'G614ST', u'scandata': u'1', u'region': u'\u897f\u5357', u'rate': u'100'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_code</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.9')" >
+        pass</a>
+
+    <div id='div_pt4.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.9: {u'data': {u'count': {u'reportdata': u'158', u'running_total_day': u'13', u'scan_count': u'239', u'rate': u'74%', u'wechat_count': u'159', u'upload_count': u'239', u'scandata': u'117'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a', u'city': u'\u5357\u5b81\u5e02', u'reportdata': u'158', u'concatime': u'2017-07-17 ~ 2018-07-17', u'shop_address': u'\u5e7f\u897f\u7701\u5357\u5b81\u5e02\u4e1c\u845b\u8def118\u53f7\u9752\u79c0\u4e07\u8fbe\u5e7f\u573a\u8d2d\u7269\u4e2d\u5fc3\u767e\u8d272F-01', u'scanner_id': u'BL170837', u'scan_count': u'239', u'brand': u'NK', u'wechat_count': u'159', u'shop_name': u'\u5357\u5b81\u9752\u79c0\u4e07\u8fbe\u6ed4\u640f\u8fd0\u52a8\u57ceNK', u'running_total_day': u'13', u'shop_type': u'\u8d2d\u7269\u4e2d\u5fc3\u8fd0\u52a8\u57ce', u'shop_id': u'36501', u'upload_count': u'239', u'shop_code': u'NKNN47', u'scandata': u'117', u'region': u'\u534e\u5357', u'rate': u'74'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_name</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.10')" >
+        pass</a>
+
+    <div id='div_pt4.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.10: {u'data': {u'count': {u'reportdata': u'29', u'running_total_day': u'5', u'scan_count': u'43', u'rate': u'86%', u'wechat_count': u'29', u'upload_count': u'43', u'scandata': u'25'}, u'paging': {u'page_count': 1, u'total_count': u'1', u'record_end': u'1', u'record_start': 1}, u'list': [{u'province': u'\u5317\u4eac\u5e02', u'city': u'\u5317\u4eac\u5e02', u'reportdata': u'29', u'concatime': u'2017-07-27 ~ 2018-07-27', u'shop_address': u'\u5317\u4eac\u5e02\u5e02\u8f96\u533a\u4e30\u53f0\u533a\u4e07\u4e30\u8def\u94f6\u5ea7\u548c\u8c10\u5e7f\u573a', u'scanner_id': u'BL170925', u'scan_count': u'43', u'brand': u'BS', u'wechat_count': u'29', u'shop_name': u'\u5317\u4eac\u516d\u91cc\u6865\u94f6\u5ea7BST', u'running_total_day': u'5', u'shop_type': u'\u767e\u8d27\u5546\u573a', u'shop_id': u'1655', u'upload_count': u'43', u'shop_code': u'DBB8BS', u'scandata': u'25', u'region': u'\u534e\u5317', u'rate': u'86'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_search_shop_type</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.11')" >
+        pass</a>
+
+    <div id='div_pt4.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.11: {u'data': {u'count': {u'reportdata': u'8784', u'running_total_day': u'403', u'scan_count': u'11507', u'rate': u'84%', u'wechat_count': u'8828', u'upload_count': u'11425', u'scandata': u'7368'}, u'paging': {u'page_count': 1, u'total_count': u'20', u'record_end': 20, u'record_start': 1}, u'list': [{u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4f5b\u5c71\u5e02', u'reportdata': u'333', u'concatime': u'2017-07-14 ~ 2017-08-02', u'shop_address': u'\u5e7f\u4e1c\u7701\u4f5b\u5c71\u5e02\u987a\u5fb7\u533a\u5927\u826f\u9547\u5357\u56fd\u4e1c\u8def\u4e4b\u6c38\u65fa\u987a\u5fb7\u8d2d\u7269\u4e2d\u5fc3L-143\u601d\u52a0\u56fe\u4e13\u67dc', u'scanner_id': u'BL170870', u'scan_count': u'405', u'brand': u'ST', u'wechat_count': u'335', u'shop_name': u'\u987a\u5fb7\u5357\u56fd\u4e1c\u8def\u5409\u4e4b\u5c9bST', u'running_total_day': u'18', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'9676', u'upload_count': u'348', u'shop_code': u'K536ST', u'scandata': u'197', u'region': u'\u534e\u5357', u'rate': u'59'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'205', u'concatime': u'2017-07-08 ~ 2018-07-08', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u7891\u6797\u533a\u53cb\u8c0a\u897f\u8def264\u53f7\u4eba\u4eba\u4e50\u53cb\u8c0a\u897f\u8def\u5e97\u4e00\u5c42Senda\u4e13\u67dc', u'scanner_id': u'BL170683', u'scan_count': u'312', u'brand': u'SD', u'wechat_count': u'205', u'shop_name': u'\u897f\u5b89\u53cb\u8c0a\u897f\u8def\u4eba\u4eba\u4e50SD', u'running_total_day': u'23', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4570', u'upload_count': u'312', u'shop_code': u'FA07SD', u'scandata': u'165', u'region': u'\u897f\u5317', u'rate': u'80'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'233', u'concatime': u'2017-07-15 ~ 2018-07-15', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u96c1\u5854\u533a\u4e08\u516b\u4e1c\u8def\u4e1c\u4eea\u8def\u5341\u5b57\u4e1c\u5357\u89d2\u4eba\u4eba\u4e50\u8d85\u4e00\u5c42Belle\u4e13\u67dc', u'scanner_id': u'BL170671', u'scan_count': u'327', u'brand': u'BL', u'wechat_count': u'234', u'shop_name': u'\u897f\u5b89\u4e08\u516b\u4e1c\u8def\u4e16\u5bb6\u661f\u57ce\u4eba\u4eba\u4e50BL', u'running_total_day': u'17', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4789', u'upload_count': u'298', u'shop_code': u'FA26BL', u'scandata': u'131', u'region': u'\u897f\u5317', u'rate': u'56'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'177', u'concatime': u'2017-07-12 ~ 2018-07-12', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u96c1\u5854\u533a\u5510\u5ef6\u8def3\u53f7\u535c\u8702\u83b2\u82b1\u8d85\u4e00\u5c42Belle\u4e13\u67dc', u'scanner_id': u'BL170654', u'scan_count': u'343', u'brand': u'BL', u'wechat_count': u'179', u'shop_name': u'\u897f\u5b89\u5510\u5ef6\u8def\u535c\u8702\u83b2\u82b1BL', u'running_total_day': u'20', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4834', u'upload_count': u'343', u'shop_code': u'FA59BL', u'scandata': u'139', u'region': u'\u897f\u5317', u'rate': u'79'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'609', u'concatime': u'2017-07-06 ~ 2018-07-06', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u960e\u826f\u533a\u4eba\u6c11\u8def35\u53f7', u'scanner_id': u'BL170653', u'scan_count': u'848', u'brand': u'NK', u'wechat_count': u'612', u'shop_name': u'\u897f\u5b89\u5e02\u95eb\u826f\u533a\u4eba\u6c11\u8def\u4eba\u4eba\u4e50NK', u'running_total_day': u'26', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'39314', u'upload_count': u'848', u'shop_code': u'NKXA37', u'scandata': u'524', u'region': u'\u897f\u5317', u'rate': u'86'}, {u'province': u'\u7518\u8083\u7701', u'city': u'\u5170\u5dde\u5e02', u'reportdata': u'124', u'concatime': u'2017-07-15 ~ 2017-08-13', u'shop_address': u'\u7518\u8083\u7701\u5170\u5dde\u5e02\u5b89\u5b81\u533a\u5b89\u5b81\u897f\u8def381\u53f7\u8d39\u5bb6\u8425\u4ec0\u5b57', u'scanner_id': u'BL170626', u'scan_count': u'164', u'brand': u'NK', u'wechat_count': u'125', u'shop_name': u'\u5170\u5dde\u5b89\u5b81\u897f\u8def\u5317\u4eac\u534e\u8054NK\u7279\u5356', u'running_total_day': u'16', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'43505', u'upload_count': u'166', u'shop_code': u'NKLZT1', u'scandata': u'89', u'region': u'\u897f\u5317', u'rate': u'72'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'312', u'concatime': u'2017-07-12 ~ 2018-07-12', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u96c1\u5854\u533a\u5510\u5ef6\u8def3\u53f7\u535c\u8702\u83b2\u82b1\u8d85\u4e00\u5c42Tata\u4e13\u67dc', u'scanner_id': u'BL170592', u'scan_count': u'496', u'brand': u'TT', u'wechat_count': u'312', u'shop_name': u'\u897f\u5b89\u5510\u5ef6\u8def\u535c\u8702\u83b2\u82b1TT', u'running_total_day': u'20', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4831', u'upload_count': u'489', u'shop_code': u'FA54TT', u'scandata': u'219', u'region': u'\u897f\u5317', u'rate': u'70'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u5eca\u574a\u5e02', u'reportdata': u'467', u'concatime': u'2017-07-09 ~ 2018-07-09', u'shop_address': u'\u6cb3\u5317\u7701\u5eca\u574a\u5e02\u5e7f\u9633\u533a\u65b0\u534e\u8def\u4e07\u8fbe\u5e7f\u573a\u4e07\u5343\u767e\u8d27', u'scanner_id': u'BL170573', u'scan_count': u'535', u'brand': u'BL', u'wechat_count': u'470', u'shop_name': u'\u5eca\u574a\u4e07\u8fbe\u767e\u8d27BL', u'running_total_day': u'22', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2225', u'upload_count': u'535', u'shop_code': u'DN40BL', u'scandata': u'447', u'region': u'\u534e\u5317', u'rate': u'96'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u6c55\u5934\u5e02', u'reportdata': u'214', u'concatime': u'2017-07-01 ~ 2017-07-10', u'shop_address': u'\u5e7f\u4e1c\u7701\u6c55\u5934\u5e02\u9f99\u6e56\u533a\u957f\u5e73\u8def\u4e30\u6cfd\u5e84\u535c\u8702\u83b2\u82b1\u8d85\u5e02\u9996\u5c42', u'scanner_id': u'BL170561', u'scan_count': u'294', u'brand': u'BL', u'wechat_count': u'216', u'shop_name': u'\u6c55\u5934\u957f\u5e73\u8def\u535c\u8702\u83b2\u82b1\u8d2d\u7269\u5546\u573aBL', u'running_total_day': u'9', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'10184', u'upload_count': u'294', u'shop_code': u'K807BL', u'scandata': u'198', u'region': u'\u534e\u5357', u'rate': u'93'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'106', u'concatime': u'2017-07-22 ~ 2017-08-21', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u96c1\u5854\u533a\u5510\u5ef6\u8def3\u53f7\u535c\u8702\u83b2\u82b1\u8d85\u4e00\u5c42Basto\u4e13\u67dc', u'scanner_id': u'BL170560', u'scan_count': u'140', u'brand': u'BS', u'wechat_count': u'106', u'shop_name': u'\u897f\u5b89\u5510\u5ef6\u8def\u535c\u8702\u83b2\u82b1BST', u'running_total_day': u'9', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4804', u'upload_count': u'137', u'shop_code': u'FA34BS', u'scandata': u'81', u'region': u'\u897f\u5317', u'rate': u'76'}, {u'province': u'\u6cb3\u5317\u7701', u'city': u'\u5510\u5c71\u5e02', u'reportdata': u'1010', u'concatime': u'2017-07-08 ~ 2018-07-08', u'shop_address': u'\u6cb3\u5317\u7701\u5510\u5c71\u5e02\u4e30\u6da6\u533a\u5510\u5c71\u5e02\u4e30\u6da6\u533a\u5510\u4e30\u8def\u4e0e\u66f9\u96ea\u82b9\u897f\u9053\u4ea4\u53c9\u53e3', u'scanner_id': u'BL170559', u'scan_count': u'1308', u'brand': u'BL', u'wechat_count': u'1023', u'shop_name': u'\u5510\u5c71\u5317\u65b9\u8d2d\u7269\u5e7f\u573aBL', u'running_total_day': u'24', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2543', u'upload_count': u'1308', u'shop_code': u'DN49BL', u'scandata': u'858', u'region': u'\u534e\u5317', u'rate': u'85'}, {u'province': u'\u5e7f\u4e1c\u7701', u'city': u'\u4f5b\u5c71\u5e02', u'reportdata': u'160', u'concatime': u'2017-07-16 ~ 2018-07-19', u'shop_address': u'\u4e1c\u7701\u4f5b\u5c71\u5e02\u987a\u5fb7\u533a\u5927\u826f\u5357\u56fd\u8def30\u53f7\u6c38\u65fa\u987a\u5fb7\u8d2d\u7269\u4e2d\u5fc32\u697c\u5409\u4e4b\u5c9b\u8d85\u5e02\u5185NIKE\u4e13\u67dc', u'scanner_id': u'BL170512', u'scan_count': u'216', u'brand': u'NK', u'wechat_count': u'160', u'shop_name': u'\u987a\u5fb7\u5927\u826f\u5409\u4e4b\u5c9bNK', u'running_total_day': u'13', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'36513', u'upload_count': u'217', u'shop_code': u'NKSD13', u'scandata': u'151', u'region': u'\u534e\u5357', u'rate': u'94'}, {u'province': u'\u6c5f\u82cf\u7701', u'city': u'\u5357\u4eac\u5e02', u'reportdata': u'436', u'concatime': u'2017-06-20 ~ 2018-06-20', u'shop_address': u'\u6c5f\u82cf\u7701\u5357\u4eac\u5e02\u6c5f\u5b81\u533a\u91d1\u7b94\u8def999\u53f71\u697c', u'scanner_id': u'BL170479', u'scan_count': u'534', u'brand': u'BL', u'wechat_count': u'437', u'shop_name': u'\u5357\u4eac\u534e\u6da6\u82cf\u679cBL', u'running_total_day': u'31', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'8491', u'upload_count': u'534', u'shop_code': u'IK29BL', u'scandata': u'388', u'region': u'\u534e\u4e1c', u'rate': u'89'}, {u'province': u'\u9655\u897f\u7701', u'city': u'\u897f\u5b89\u5e02', u'reportdata': u'521', u'concatime': u'2017-06-15 ~ 2018-06-15', u'shop_address': u'\u9655\u897f\u7701\u897f\u5b89\u5e02\u672a\u592e\u533a\u672a\u592e\u8def126\u53f7\u4eba\u4eba\u4e50\u8d5b\u9ad8\u5e97\u4e00\u5c42Belle\u4e13\u67dc', u'scanner_id': u'BL170370', u'scan_count': u'612', u'brand': u'BL', u'wechat_count': u'523', u'shop_name': u'\u897f\u5b89\u672a\u592e\u8def\u4eba\u4eba\u4e50BL', u'running_total_day': u'31', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'4683', u'upload_count': u'612', u'shop_code': u'FA24BL', u'scandata': u'451', u'region': u'\u897f\u5317', u'rate': u'87'}, {u'province': u'\u6c5f\u82cf\u7701', u'city': u'\u5357\u4eac\u5e02', u'reportdata': u'1', u'concatime': u'2017-07-31 ~ 2018-07-31', u'shop_address': u'\u6c5f\u82cf\u7701\u5357\u4eac\u5e02\u9f13\u697c\u533a\u51e4\u51f0\u4e1c\u8857150\u53f7\u534e\u6da6\u82cf\u679c\u4e00\u697c', u'scanner_id': u'BL170335', u'scan_count': u'1', u'brand': u'BL', u'wechat_count': u'1', u'shop_name': u'\u5357\u4eac\u6e05\u51c9\u95e8\u534e\u6da6\u82cf\u679cBL', u'running_total_day': u'1', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'8456', u'upload_count': u'1', u'shop_code': u'IK40BL', u'scandata': u'1', u'region': u'\u534e\u4e1c', u'rate': u'100'}, {u'province': u'\u5c71\u897f\u7701', u'city': u'\u8fd0\u57ce\u5e02', u'reportdata': u'1332', u'concatime': u'2017-06-22 ~ 2018-06-22', u'shop_address': u'\u5c71\u897f\u7701\u8fd0\u57ce\u5e02\u76d0\u6e56\u533a\u8fd0\u57ce\u5e02\u76d0\u6e56\u533a\u6cb3\u4e1c\u4e1c\u8857\u6c83\u5c14\u739b\u8d2d\u8d2d\u7269\u5e7f\u573a\u4e00\u5c42', u'scanner_id': u'BL170312', u'scan_count': u'1642', u'brand': u'BL', u'wechat_count': u'1335', u'shop_name': u'\u8fd0\u57ce\u6c83\u5c14\u739bBL', u'running_total_day': u'31', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2977', u'upload_count': u'1644', u'shop_code': u'DY32BL', u'scandata': u'1148', u'region': u'\u534e\u5317', u'rate': u'86'}, {u'province': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a', u'city': u'\u6842\u6797\u5e02', u'reportdata': u'103', u'concatime': u'2017-05-29 ~ 2017-07-02', u'shop_address': u'\u5e7f\u897f\u58ee\u65cf\u81ea\u6cbb\u533a\u6842\u6797\u5e02\u4e03\u661f\u533a\u6f13\u6c5f\u8def26\u53f7\u56fd\u5c55\u4e2d\u5fc3\u5357\u57ce\u767e\u8d27\u4e00\u5c42\u767e\u4e3d\u4e13\u67dc', u'scanner_id': u'BL160243', u'scan_count': u'116', u'brand': u'BL', u'wechat_count': u'102', u'shop_name': u'\u6842\u6797\u6f13\u6c5f\u8def\u5357\u57ce\u767e\u8d27BL', u'running_total_day': u'2', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'10785', u'upload_count': u'123', u'shop_code': u'K646BL', u'scandata': u'84', u'region': u'\u534e\u5357', u'rate': u'82'}, {u'province': u'\u8d35\u5dde\u7701', u'city': u'\u8d35\u9633\u5e02', u'reportdata': u'645', u'concatime': u'2017-05-25 ~ 2018-05-25', u'shop_address': u'\u8d35\u5dde\u7701\u8d35\u9633\u5e02\u4e91\u5ca9\u533a\u5bcc\u6c34\u5317\u8def\u5317\u4eac\u534e\u8054\u683c\u5170\u7279\u5546\u573a1\u697c', u'scanner_id': u'BL160144', u'scan_count': u'1028', u'brand': u'BL', u'wechat_count': u'655', u'shop_name': u'\u8d35\u9633\u683c\u5170\u7279BL', u'running_total_day': u'29', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'12529', u'upload_count': u'1028', u'shop_code': u'MG18BL', u'scandata': u'416', u'region': u'\u534e\u5357', u'rate': u'64'}, {u'province': u'\u6d59\u6c5f\u7701', u'city': u'\u676d\u5dde\u5e02', u'reportdata': u'338', u'concatime': u'2017-05-19 ~ 2017-08-16', u'shop_address': u'\u6d59\u6c5f\u7701\u676d\u5dde\u5e02\u897f\u6e56\u533a\u6587\u4e8c\u897f\u8def2\u53f71\u697c', u'scanner_id': u'BL160094', u'scan_count': u'455', u'brand': u'BL', u'wechat_count': u'339', u'shop_name': u'\u676d\u5dde\u534e\u5546\u4e16\u7eaa\u8054\u534eBL', u'running_total_day': u'30', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'9262', u'upload_count': u'455', u'shop_code': u'IG33BL', u'scandata': u'309', u'region': u'\u534e\u4e1c', u'rate': u'91'}, {u'province': u'\u5c71\u897f\u7701', u'city': u'\u592a\u539f\u5e02', u'reportdata': u'1458', u'concatime': u'2017-05-20 ~ 2018-05-20', u'shop_address': u'\u5c71\u897f\u7701\u592a\u539f\u5e02\u5c0f\u5e97\u533a\u5c71\u897f\u7701\u592a\u539f\u5e02\u5c0f\u5e97\u533a\u5eb7\u5b81\u88571\u53f7', u'scanner_id': u'BL160087', u'scan_count': u'1731', u'brand': u'BL', u'wechat_count': u'1459', u'shop_name': u'\u592a\u539f\u7f8e\u90fd\u6c47\u8d2d\u7269\u5e7f\u573aBL', u'running_total_day': u'31', u'shop_type': u'\u5546\u573a\u8d85\u5e02', u'shop_id': u'2807', u'upload_count': u'1733', u'shop_code': u'DY23BL', u'scandata': u'1372', u'region': u'\u534e\u5317', u'rate': u'94'}], u'page': 1}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>login_test.LoginTest</td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c5',6)">Detail</a></td>
+</tr>
+
+<tr id='pt5.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_admin_error</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.1')" >
+        pass</a>
+
+    <div id='div_pt5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.1: {u'errcode': 100003, u'errmsg': u'\u8f93\u5165\u7684\u7528\u6237\u540d\u5bc6\u7801\u9519\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_login_success</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.2')" >
+        pass</a>
+
+    <div id='div_pt5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.2: {u'data': {u'rolename': u'\u603b\u7ba1\u7406\u5458', u'nickname': u'Admin'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_loginname_null</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.3')" >
+        pass</a>
+
+    <div id='div_pt5.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.3: {u'errcode': 100001, u'errmsg': u'\u8bf7\u8f93\u5165\u7528\u6237\u540d'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_password_error</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.4')" >
+        pass</a>
+
+    <div id='div_pt5.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.4: {u'errcode': 100003, u'errmsg': u'\u8f93\u5165\u7684\u7528\u6237\u540d\u5bc6\u7801\u9519\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_password_null</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.5')" >
+        pass</a>
+
+    <div id='div_pt5.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.5: {u'errcode': 100002, u'errmsg': u'\u8bf7\u8f93\u5165\u5bc6\u7801'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt5.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_username_password_null</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt5.6')" >
+        pass</a>
+
+    <div id='div_pt5.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt5.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt5.6: {u'errcode': 100001, u'errmsg': u'\u8bf7\u8f93\u5165\u7528\u6237\u540d'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>scancount_test.ScanCountTest</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c6',8)">Detail</a></td>
+</tr>
+
+<tr id='pt6.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_city</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.1')" >
+        pass</a>
+
+    <div id='div_pt6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.1: {u'data': {u'from_compare': u'2017-07-08', u'to_compare': u'2017-07-15', u'from_date': u'2017-07-01', u'list': [{u'compare': u'6761', u'inquiry': u'4992', u'name': u'\u6df1\u5733\u5e02', u'rate': u'-26'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        pass</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.2: {u'data': {u'from_compare': u'2017-10-10', u'to_compare': u'2017-10-10', u'from_date': u'2017-10-11', u'list': [{u'compare': u'0', u'inquiry': u'0', u'name': u'\u9c81\u8c6b', u'rate': u'0'}], u'to_date': u'2017-10-11'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day30</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.3')" >
+        pass</a>
+
+    <div id='div_pt6.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.3: {u'data': {u'from_compare': u'2017-08-12', u'to_compare': u'2017-09-10', u'from_date': u'2017-09-11', u'list': [{u'compare': u'212863', u'inquiry': u'94529', u'name': u'\u534e\u5357', u'rate': u'-56'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day7</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.4')" >
+        pass</a>
+
+    <div id='div_pt6.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.4: {u'data': {u'from_compare': u'2017-09-27', u'to_compare': u'2017-10-03', u'from_date': u'2017-10-04', u'list': [{u'compare': u'1600', u'inquiry': u'0', u'name': u'\u9c81\u8c6b', u'rate': u'0'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_province</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.5')" >
+        pass</a>
+
+    <div id='div_pt6.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.5: {u'data': {u'from_compare': u'2017-07-08', u'to_compare': u'2017-07-15', u'from_date': u'2017-07-01', u'list': [{u'compare': u'18615', u'inquiry': u'12559', u'name': u'\u5e7f\u4e1c\u7701', u'rate': u'-33'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_region</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.6')" >
+        pass</a>
+
+    <div id='div_pt6.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.6: {u'data': {u'from_compare': u'2017-07-08', u'to_compare': u'2017-07-15', u'from_date': u'2017-07-01', u'list': [{u'compare': u'34303', u'inquiry': u'23682', u'name': u'\u534e\u5357', u'rate': u'-31'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_shop</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.7')" >
+        pass</a>
+
+    <div id='div_pt6.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.7: {u'data': {u'from_compare': u'2017-07-08', u'to_compare': u'2017-07-15', u'from_date': u'2017-07-01', u'list': [{u'compare': u'621', u'inquiry': u'624', u'name': u'\u5357\u5b81\u671d\u9633\u8def\u767e\u76db\u8d2d\u7269\u5e7f\u573aBL', u'rate': u'0'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_yesterday</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.8')" >
+        pass</a>
+
+    <div id='div_pt6.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt6.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt6.8: {u'data': {u'from_compare': u'2017-10-09', u'to_compare': u'2017-10-09', u'from_date': u'2017-10-10', u'list': [{u'compare': u'0', u'inquiry': u'0', u'name': u'\u9c81\u8c6b', u'rate': u'0'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>wxscanmap_test.wxScanMapTest</td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',8)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_city</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: {u'data': {u'from_date': u'2017-07-01', u'list': [{u'inquiry': u'159', u'name': u'\u8d35\u9633\u5e02'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.2: {u'data': {u'from_date': u'2017-10-11', u'list': [{u'inquiry': u'0', u'name': u'\u97f6\u5173\u5e02'}], u'to_date': u'2017-10-11'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day30</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.3')" >
+        pass</a>
+
+    <div id='div_pt7.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.3: {u'data': {u'from_date': u'2017-09-11', u'list': [{u'inquiry': u'13686', u'name': u'\u5e7f\u5dde\u5e02'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_day7</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.4')" >
+        pass</a>
+
+    <div id='div_pt7.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.4: {u'data': {u'from_date': u'2017-10-04', u'list': [{u'inquiry': u'0', u'name': u'\u97f6\u5173\u5e02'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_province</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.5')" >
+        pass</a>
+
+    <div id='div_pt7.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.5: {u'data': {u'from_date': u'2017-07-01', u'list': [{u'inquiry': u'12559', u'name': u'\u5e7f\u4e1c\u7701'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_region</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.6')" >
+        pass</a>
+
+    <div id='div_pt7.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.6: {u'data': {u'from_date': u'2017-07-01', u'list': [{u'inquiry': u'23682', u'name': u'\u534e\u5357'}], u'to_date': u'2017-07-07'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_count_yesterday</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.7')" >
+        pass</a>
+
+    <div id='div_pt7.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.7: {u'data': {u'from_date': u'2017-10-10', u'list': [{u'inquiry': u'0', u'name': u'\u97f6\u5173\u5e02'}], u'to_date': u'2017-10-10'}, u'errcode': 0}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_error</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.8')" >
+        pass</a>
+
+    <div id='div_pt7.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.8: {u'errcode': u'800004', u'errmsg': u'datatype\u53c2\u6570\u6ca1\u6709\u8bbe\u7f6e[ region | province | city | shop ]'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>52</td>
+    <td>52</td>
+    <td>0</td>
+    <td>0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
